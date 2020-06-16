@@ -8,40 +8,40 @@ public class Animal implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private Integer idAnimal;
-	private Double tamanho;
-	private Double peso;
-	private String cor;
-	private Date dataResgate;
-	private String vacinas;
-	private String sexo;
-	private String prenha;
-	private String devolvidoParaRua;
-	private String levadoCanil;
-	private String castrado;
-	private String dispAdocao;
-	private String tratamentos;
+	private Double tamanhoAnimal;
+	private Double pesoAnimal;
+	private String corAnimal;
+	private Date dataResgateAnimal;
+	private String vacinasAnimal;
+	private String sexoAnimal;
+	private String prenhaAnimal;
+	private String devolvidoParaRuaAnimal;
+	private String levadoCanilAnimal;
+	private String castradoAnimal;
+	private String dispAdocaoAnimal;
+	private String tratamentosAnimal;
 	
 	public Animal() {
 		
 	}
-	
-	public Animal(Integer idAnimal, Double tamanho, Double peso, String cor, Date dataResgate, String vacinas,
-			String sexo, String prenha, String devolvidoParaRua, String levadoCanil, String castrado, String dispAdocao,
-			String tratamentos) {
-		
+
+	public Animal(Integer idAnimal, Double tamanhoAnimal, Double pesoAnimal, String corAnimal, Date dataResgateAnimal,
+			String vacinasAnimal, String sexoAnimal, String prenhaAnimal, String devolvidoParaRuaAnimal,
+			String levadoCanilAnimal, String castradoAnimal, String dispAdocaoAnimal, String tratamentosAnimal) {
+		super();
 		this.idAnimal = idAnimal;
-		this.tamanho = tamanho;
-		this.peso = peso;
-		this.cor = cor;
-		this.dataResgate = dataResgate;
-		this.vacinas = vacinas;
-		this.sexo = sexo;
-		this.prenha = prenha;
-		this.devolvidoParaRua = devolvidoParaRua;
-		this.levadoCanil = levadoCanil;
-		this.castrado = castrado;
-		this.dispAdocao = dispAdocao;
-		this.tratamentos = tratamentos;
+		this.tamanhoAnimal = tamanhoAnimal;
+		this.pesoAnimal = pesoAnimal;
+		this.corAnimal = corAnimal;
+		this.dataResgateAnimal = dataResgateAnimal;
+		this.vacinasAnimal = vacinasAnimal;
+		this.sexoAnimal = sexoAnimal;
+		this.prenhaAnimal = prenhaAnimal;
+		this.devolvidoParaRuaAnimal = devolvidoParaRuaAnimal;
+		this.levadoCanilAnimal = levadoCanilAnimal;
+		this.castradoAnimal = castradoAnimal;
+		this.dispAdocaoAnimal = dispAdocaoAnimal;
+		this.tratamentosAnimal = tratamentosAnimal;
 	}
 
 	public Integer getIdAnimal() {
@@ -52,119 +52,119 @@ public class Animal implements Serializable{
 		this.idAnimal = idAnimal;
 	}
 
-	public Double getTamanho() {
-		return tamanho;
+	public Double getTamanhoAnimal() {
+		return tamanhoAnimal;
 	}
 
-	public void setTamanho(Double tamanho) {
-		this.tamanho = tamanho;
+	public void setTamanhoAnimal(Double tamanhoAnimal) {
+		this.tamanhoAnimal = tamanhoAnimal;
 	}
 
-	public Double getPeso() {
-		return peso;
+	public Double getPesoAnimal() {
+		return pesoAnimal;
 	}
 
-	public void setPeso(Double peso) {
-		this.peso = peso;
+	public void setPesoAnimal(Double pesoAnimal) {
+		this.pesoAnimal = pesoAnimal;
 	}
 
-	public String getCor() {
-		return cor;
+	public String getCorAnimal() {
+		return corAnimal;
 	}
 
-	public void setCor(String cor) {
-		this.cor = cor;
+	public void setCorAnimal(String corAnimal) {
+		this.corAnimal = corAnimal;
 	}
 
-	public Date getDataResgate() {
-		return dataResgate;
+	public Date getDataResgateAnimal() {
+		return dataResgateAnimal;
 	}
 
-	public void setDataResgate(Date dataResgate) {
-		this.dataResgate = dataResgate;
+	public void setDataResgateAnimal(Date dataResgateAnimal) {
+		this.dataResgateAnimal = dataResgateAnimal;
 	}
 
-	public String getVacinas() {
-		return vacinas;
+	public String getVacinasAnimal() {
+		return vacinasAnimal;
 	}
 
-	public void setVacinas(String vacinas) {
-		this.vacinas = vacinas;
+	public void setVacinasAnimal(String vacinasAnimal) {
+		this.vacinasAnimal = vacinasAnimal;
 	}
 
-	public String getSexo() {
-		return sexo;
+	public String getSexoAnimal() {
+		return sexoAnimal;
 	}
 
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
+	public void setSexoAnimal(String sexoAnimal) {
+		this.sexoAnimal = sexoAnimal;
 	}
 
-	public String getPrenha() {
-		return prenha;
+	public String getPrenhaAnimal() {
+		return prenhaAnimal;
 	}
 
-	public void setPrenha(String prenha) {
-		this.prenha = prenha;
+	public void setPrenhaAnimal(String prenhaAnimal) {
+		this.prenhaAnimal = prenhaAnimal;
 	}
 
-	public String getDevolvidoParaRua() {
-		return devolvidoParaRua;
+	public String getDevolvidoParaRuaAnimal() {
+		return devolvidoParaRuaAnimal;
 	}
 
-	public void setDevolvidoParaRua(String devolvidoParaRua) {
-		this.devolvidoParaRua = devolvidoParaRua;
+	public void setDevolvidoParaRuaAnimal(String devolvidoParaRuaAnimal) {
+		this.devolvidoParaRuaAnimal = devolvidoParaRuaAnimal;
 	}
 
-	public String getLevadoCanil() {
-		return levadoCanil;
+	public String getLevadoCanilAnimal() {
+		return levadoCanilAnimal;
 	}
 
-	public void setLevadoCanil(String levadoCanil) {
-		this.levadoCanil = levadoCanil;
+	public void setLevadoCanilAnimal(String levadoCanilAnimal) {
+		this.levadoCanilAnimal = levadoCanilAnimal;
 	}
 
-	public String getCastrado() {
-		return castrado;
+	public String getCastradoAnimal() {
+		return castradoAnimal;
 	}
 
-	public void setCastrado(String castrado) {
-		this.castrado = castrado;
+	public void setCastradoAnimal(String castradoAnimal) {
+		this.castradoAnimal = castradoAnimal;
 	}
 
-	public String getDispAdocao() {
-		return dispAdocao;
+	public String getDispAdocaoAnimal() {
+		return dispAdocaoAnimal;
 	}
 
-	public void setDispAdocao(String dispAdocao) {
-		this.dispAdocao = dispAdocao;
+	public void setDispAdocaoAnimal(String dispAdocaoAnimal) {
+		this.dispAdocaoAnimal = dispAdocaoAnimal;
 	}
 
-	public String getTratamentos() {
-		return tratamentos;
+	public String getTratamentosAnimal() {
+		return tratamentosAnimal;
 	}
 
-	public void setTratamentos(String tratamentos) {
-		this.tratamentos = tratamentos;
+	public void setTratamentosAnimal(String tratamentosAnimal) {
+		this.tratamentosAnimal = tratamentosAnimal;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((castrado == null) ? 0 : castrado.hashCode());
-		result = prime * result + ((cor == null) ? 0 : cor.hashCode());
-		result = prime * result + ((dataResgate == null) ? 0 : dataResgate.hashCode());
-		result = prime * result + ((devolvidoParaRua == null) ? 0 : devolvidoParaRua.hashCode());
-		result = prime * result + ((dispAdocao == null) ? 0 : dispAdocao.hashCode());
+		result = prime * result + ((castradoAnimal == null) ? 0 : castradoAnimal.hashCode());
+		result = prime * result + ((corAnimal == null) ? 0 : corAnimal.hashCode());
+		result = prime * result + ((dataResgateAnimal == null) ? 0 : dataResgateAnimal.hashCode());
+		result = prime * result + ((devolvidoParaRuaAnimal == null) ? 0 : devolvidoParaRuaAnimal.hashCode());
+		result = prime * result + ((dispAdocaoAnimal == null) ? 0 : dispAdocaoAnimal.hashCode());
 		result = prime * result + ((idAnimal == null) ? 0 : idAnimal.hashCode());
-		result = prime * result + ((levadoCanil == null) ? 0 : levadoCanil.hashCode());
-		result = prime * result + ((peso == null) ? 0 : peso.hashCode());
-		result = prime * result + ((prenha == null) ? 0 : prenha.hashCode());
-		result = prime * result + ((sexo == null) ? 0 : sexo.hashCode());
-		result = prime * result + ((tamanho == null) ? 0 : tamanho.hashCode());
-		result = prime * result + ((tratamentos == null) ? 0 : tratamentos.hashCode());
-		result = prime * result + ((vacinas == null) ? 0 : vacinas.hashCode());
+		result = prime * result + ((levadoCanilAnimal == null) ? 0 : levadoCanilAnimal.hashCode());
+		result = prime * result + ((pesoAnimal == null) ? 0 : pesoAnimal.hashCode());
+		result = prime * result + ((prenhaAnimal == null) ? 0 : prenhaAnimal.hashCode());
+		result = prime * result + ((sexoAnimal == null) ? 0 : sexoAnimal.hashCode());
+		result = prime * result + ((tamanhoAnimal == null) ? 0 : tamanhoAnimal.hashCode());
+		result = prime * result + ((tratamentosAnimal == null) ? 0 : tratamentosAnimal.hashCode());
+		result = prime * result + ((vacinasAnimal == null) ? 0 : vacinasAnimal.hashCode());
 		return result;
 	}
 
@@ -177,82 +177,84 @@ public class Animal implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Animal other = (Animal) obj;
-		if (castrado == null) {
-			if (other.castrado != null)
+		if (castradoAnimal == null) {
+			if (other.castradoAnimal != null)
 				return false;
-		} else if (!castrado.equals(other.castrado))
+		} else if (!castradoAnimal.equals(other.castradoAnimal))
 			return false;
-		if (cor == null) {
-			if (other.cor != null)
+		if (corAnimal == null) {
+			if (other.corAnimal != null)
 				return false;
-		} else if (!cor.equals(other.cor))
+		} else if (!corAnimal.equals(other.corAnimal))
 			return false;
-		if (dataResgate == null) {
-			if (other.dataResgate != null)
+		if (dataResgateAnimal == null) {
+			if (other.dataResgateAnimal != null)
 				return false;
-		} else if (!dataResgate.equals(other.dataResgate))
+		} else if (!dataResgateAnimal.equals(other.dataResgateAnimal))
 			return false;
-		if (devolvidoParaRua == null) {
-			if (other.devolvidoParaRua != null)
+		if (devolvidoParaRuaAnimal == null) {
+			if (other.devolvidoParaRuaAnimal != null)
 				return false;
-		} else if (!devolvidoParaRua.equals(other.devolvidoParaRua))
+		} else if (!devolvidoParaRuaAnimal.equals(other.devolvidoParaRuaAnimal))
 			return false;
-		if (dispAdocao == null) {
-			if (other.dispAdocao != null)
+		if (dispAdocaoAnimal == null) {
+			if (other.dispAdocaoAnimal != null)
 				return false;
-		} else if (!dispAdocao.equals(other.dispAdocao))
+		} else if (!dispAdocaoAnimal.equals(other.dispAdocaoAnimal))
 			return false;
 		if (idAnimal == null) {
 			if (other.idAnimal != null)
 				return false;
 		} else if (!idAnimal.equals(other.idAnimal))
 			return false;
-		if (levadoCanil == null) {
-			if (other.levadoCanil != null)
+		if (levadoCanilAnimal == null) {
+			if (other.levadoCanilAnimal != null)
 				return false;
-		} else if (!levadoCanil.equals(other.levadoCanil))
+		} else if (!levadoCanilAnimal.equals(other.levadoCanilAnimal))
 			return false;
-		if (peso == null) {
-			if (other.peso != null)
+		if (pesoAnimal == null) {
+			if (other.pesoAnimal != null)
 				return false;
-		} else if (!peso.equals(other.peso))
+		} else if (!pesoAnimal.equals(other.pesoAnimal))
 			return false;
-		if (prenha == null) {
-			if (other.prenha != null)
+		if (prenhaAnimal == null) {
+			if (other.prenhaAnimal != null)
 				return false;
-		} else if (!prenha.equals(other.prenha))
+		} else if (!prenhaAnimal.equals(other.prenhaAnimal))
 			return false;
-		if (sexo == null) {
-			if (other.sexo != null)
+		if (sexoAnimal == null) {
+			if (other.sexoAnimal != null)
 				return false;
-		} else if (!sexo.equals(other.sexo))
+		} else if (!sexoAnimal.equals(other.sexoAnimal))
 			return false;
-		if (tamanho == null) {
-			if (other.tamanho != null)
+		if (tamanhoAnimal == null) {
+			if (other.tamanhoAnimal != null)
 				return false;
-		} else if (!tamanho.equals(other.tamanho))
+		} else if (!tamanhoAnimal.equals(other.tamanhoAnimal))
 			return false;
-		if (tratamentos == null) {
-			if (other.tratamentos != null)
+		if (tratamentosAnimal == null) {
+			if (other.tratamentosAnimal != null)
 				return false;
-		} else if (!tratamentos.equals(other.tratamentos))
+		} else if (!tratamentosAnimal.equals(other.tratamentosAnimal))
 			return false;
-		if (vacinas == null) {
-			if (other.vacinas != null)
+		if (vacinasAnimal == null) {
+			if (other.vacinasAnimal != null)
 				return false;
-		} else if (!vacinas.equals(other.vacinas))
+		} else if (!vacinasAnimal.equals(other.vacinasAnimal))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Animal [idAnimal=" + idAnimal + ", tamanho=" + tamanho + ", peso=" + peso + ", cor=" + cor
-				+ ", dataResgate=" + dataResgate + ", vacinas=" + vacinas + ", sexo=" + sexo + ", prenha=" + prenha
-				+ ", devolvidoParaRua=" + devolvidoParaRua + ", levadoCanil=" + levadoCanil + ", castrado=" + castrado
-				+ ", dispAdocao=" + dispAdocao + ", tratamentos=" + tratamentos + "]";
+		return "Animal [idAnimal=" + idAnimal + ", tamanhoAnimal=" + tamanhoAnimal + ", pesoAnimal=" + pesoAnimal
+				+ ", corAnimal=" + corAnimal + ", dataResgateAnimal=" + dataResgateAnimal + ", vacinasAnimal="
+				+ vacinasAnimal + ", sexoAnimal=" + sexoAnimal + ", prenhaAnimal=" + prenhaAnimal
+				+ ", devolvidoParaRuaAnimal=" + devolvidoParaRuaAnimal + ", levadoCanilAnimal=" + levadoCanilAnimal
+				+ ", castradoAnimal=" + castradoAnimal + ", dispAdocaoAnimal=" + dispAdocaoAnimal
+				+ ", tratamentosAnimal=" + tratamentosAnimal + "]";
 	}
 	
 	
 	
-}
+}	
