@@ -21,7 +21,7 @@ public class Main extends Application {
 			Scene mainScene = new Scene(parent); 
 			primaryStage.getIcons().add(new Image("/images/favicon.png"));
 			primaryStage.setScene(mainScene);
-			primaryStage.setTitle("Unidos Pra Cachorro");
+			primaryStage.setTitle("UNIDOS PRA CACHORRO");
 			primaryStage.show();
 		} catch(IOException e) {
 			e.printStackTrace();
