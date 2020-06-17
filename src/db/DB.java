@@ -54,7 +54,7 @@ public class DB {
 		
 	}
 	
-	public static void closeStatement(PreparedStatement st) {
+	public static void closeStatement(java.sql.PreparedStatement st) {
 			
 		if(st != null) {
 			try {

@@ -2,12 +2,13 @@ package gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ResourceBundle;
 
+import db.DB;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,6 +17,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import model.dao.impl.UsuarioDaoJDBC;
 
 public class LoginViewController implements Initializable {
 
@@ -35,17 +37,12 @@ public class LoginViewController implements Initializable {
 		
 	}
 		
-	public LoginViewController(TextField txtEmailLogin, PasswordField pwfSenhaLogin, Button btnEntrarLogin) {
-		super();
-		this.txtEmailLogin = txtEmailLogin;
-		this.pwfSenhaLogin = pwfSenhaLogin;
-		this.btnEntrarLogin = btnEntrarLogin;
-	}
-
-	
 	@FXML
 	public void onBtnEntrarLoginAction() {
-		if(txtEmailLogin.getText().equals("andre") && pwfSenhaLogin.getText().equals("123")) {
+	
+		UsuarioDaoJDBC usuarioDao = new UsuarioDaoJDBC(DB.getConnection());
+		
+		if(usuarioDao.checkLogin(txtEmailLogin.getText(), pwfSenhaLogin.getText())) {
 			
 			try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainView.fxml"));
@@ -61,13 +58,17 @@ public class LoginViewController implements Initializable {
 			primaryStage.setTitle("UNIDOS PRA CACHORRO");
 			primaryStage.show();
 			
+			
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 			
 		}else {
 			lblStatus.setText("E-mail e/ou senha estão errados");
+			txtEmailLogin.setText("");
+			pwfSenhaLogin.setText("");
+			txtEmailLogin.requestFocus();
 		}
 	}
 	
