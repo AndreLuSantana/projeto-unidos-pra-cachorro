@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import model.dao.DaoFactory;
 import model.entities.Login;
@@ -30,12 +32,14 @@ public class LoginViewController implements Initializable {
 	@FXML
 	private Button btnEntrarLogin;
 	
-	public LoginViewController() {
-		
-	}
 		
 	@FXML
-	protected void onBtnEntrarLoginAction() {
+	private void onBtnEntrarLoginAction() {
+		login();
+	}
+
+	
+	public void login() {
 		
 		if(DaoFactory.createUsuarioDao().checkLogin(txtEmailLogin.getText(), pwfSenhaLogin.getText()))
 		{
@@ -54,10 +58,17 @@ public class LoginViewController implements Initializable {
 		Login.getStage().close();
 	}
 	
+	
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		
+		btnEntrarLogin.setOnKeyPressed((KeyEvent e) -> {
+			if(e.getCode() == KeyCode.ENTER) {
+				login();
+			}
+		});
+	
 		
 	}
 
