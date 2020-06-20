@@ -30,6 +30,7 @@ public void start(Stage primaryStage) {
 				primaryStage.getIcons().add(new Image("/images/favicon.png"));
 				primaryStage.setScene(mainScene);
 				primaryStage.setTitle("UNIDOS PRA CACHORRO");
+				primaryStage.setMaximized(true);
 				primaryStage.show();
 			
 			

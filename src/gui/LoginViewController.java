@@ -47,6 +47,7 @@ public class LoginViewController implements Initializable {
 			TelaPrincipal tp = new TelaPrincipal();
 			tp.start(new Stage());
 			
+			Login.getStage().close();
 			
 		}else {
 			lblStatus.setText("E-mail e/ou senha estão errados");
@@ -55,7 +56,7 @@ public class LoginViewController implements Initializable {
 			txtEmailLogin.requestFocus();
 		}
 		
-		Login.getStage().close();
+		
 	}
 	
 	
@@ -68,7 +69,12 @@ public class LoginViewController implements Initializable {
 				login();
 			}
 		});
-	
+		
+		pwfSenhaLogin.setOnKeyPressed((KeyEvent e) -> {
+			if(e.getCode() == KeyCode.ENTER) {
+				login();
+			}
+		});
 		
 	}
 
