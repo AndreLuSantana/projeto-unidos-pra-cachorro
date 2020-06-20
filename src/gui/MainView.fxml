@@ -17,16 +17,16 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Cadastro">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Cadastrar Animal" />
-                        <MenuItem mnemonicParsing="false" text="Cadastrar Usuário" />
-                        <MenuItem mnemonicParsing="false" text="Cadastrar Adotante" />
+                    <MenuItem fx:id="menuCadastrarAnimal" mnemonicParsing="false" onAction="#onMenuItemCadastrarAnimalAction" text="Cadastrar Animal" />
+                        <MenuItem fx:id="menuCadastrarUsuario" mnemonicParsing="false" onAction="#onMenuItemCadastrarUsuarioAction" text="Cadastrar Usuário" />
+                        <MenuItem fx:id="menuCadastrarAdotante" mnemonicParsing="false" onAction="#onMenuItemCadastrarAdotanteAction" text="Cadastrar Adotante" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Consulta">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Consultar Animal" />
-                        <MenuItem mnemonicParsing="false" text="Consultar Usuário" />
-                        <MenuItem mnemonicParsing="false" text="Consultar Adotante" />
+                    <MenuItem fx:id="menuConsultarAnimal" mnemonicParsing="false" onAction="#onMenuItemConsultarAnimalAction" text="Consultar Animal" />
+                        <MenuItem fx:id="menuConsultarUsuario" mnemonicParsing="false" onAction="#onMenuItemConsultarUsuarioAction" text="Consultar Usuário" />
+                        <MenuItem fx:id="menuConsultarAdotante" mnemonicParsing="false" onAction="#onMenuItemConsultarAdotanteAction" text="Consultar Adotante" />
                   </items>
                 </Menu>
               </menus>

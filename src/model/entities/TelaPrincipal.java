@@ -14,30 +14,37 @@ public class TelaPrincipal extends Application{
 	public static void main(String[] args) {
 		launch(args);
 	}
+	
+	private static Scene mainScene;
+	
+	public void start(Stage primaryStage) {
+			
+			
+			try {
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainView.fxml"));
+					ScrollPane scrollpane = loader.load();
+					
+					scrollpane.setFitToHeight(true);
+					scrollpane.setFitToWidth(true);
+					
+					Stage mainStage = new Stage();
+					mainScene = new Scene(scrollpane); 
+					primaryStage.getIcons().add(new Image("/images/favicon.png"));
+					primaryStage.setScene(mainScene);
+					primaryStage.setTitle("UNIDOS PRA CACHORRO");
+					primaryStage.setMaximized(true);
+					primaryStage.show();
+				
+				
+				} catch (IOException e) {
+					
+					e.printStackTrace();
+				}
+		}
 
-public void start(Stage primaryStage) {
-		
-		
-		try {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainView.fxml"));
-				ScrollPane scrollpane = loader.load();
-				
-				scrollpane.setFitToHeight(true);
-				scrollpane.setFitToWidth(true);
-				
-				Stage mainStage = new Stage();
-				Scene mainScene = new Scene(scrollpane); 
-				primaryStage.getIcons().add(new Image("/images/favicon.png"));
-				primaryStage.setScene(mainScene);
-				primaryStage.setTitle("UNIDOS PRA CACHORRO");
-				primaryStage.setMaximized(true);
-				primaryStage.show();
-			
-			
-			} catch (IOException e) {
-				
-				e.printStackTrace();
-			}
+	public static Scene getMainScene() {
+		return mainScene;
 	}
+	
 	
 }
