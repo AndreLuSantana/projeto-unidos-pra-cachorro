@@ -13,12 +13,11 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import model.dao.DaoFactory;
-import model.entities.Login;
-import model.entities.TelaPrincipal;
+import model.services.Login;
+import model.services.TelaPrincipal;
 
 public class LoginViewController implements Initializable {
 
-	
 	
 	@FXML
 	private Label lblStatus;
@@ -58,8 +57,6 @@ public class LoginViewController implements Initializable {
 		
 		
 	}
-	
-	
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {

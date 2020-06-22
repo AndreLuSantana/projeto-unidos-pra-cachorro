@@ -1,4 +1,4 @@
-package model.entities;
+package model.services;
 
 import java.io.IOException;
 
@@ -11,11 +11,12 @@ import javafx.stage.Stage;
 
 public class TelaPrincipal extends Application{
 	
+	private static Stage Stage;
+	private static Scene mainScene;
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
-	private static Scene mainScene;
 	
 	public void start(Stage primaryStage) {
 			
@@ -27,14 +28,13 @@ public class TelaPrincipal extends Application{
 					scrollpane.setFitToHeight(true);
 					scrollpane.setFitToWidth(true);
 					
-					Stage mainStage = new Stage();
 					mainScene = new Scene(scrollpane); 
 					primaryStage.getIcons().add(new Image("/images/favicon.png"));
 					primaryStage.setScene(mainScene);
 					primaryStage.setTitle("UNIDOS PRA CACHORRO");
 					primaryStage.setMaximized(true);
 					primaryStage.show();
-				
+					setStage(primaryStage);	
 				
 				} catch (IOException e) {
 					
@@ -42,9 +42,19 @@ public class TelaPrincipal extends Application{
 				}
 		}
 
+
 	public static Scene getMainScene() {
 		return mainScene;
 	}
+
+	public static Stage getStage() {
+		return Stage;
+	}
+
+	public static void setStage(Stage stage) {
+		Stage = stage;
+	}
+	
 	
 	
 }

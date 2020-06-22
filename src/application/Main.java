@@ -2,7 +2,7 @@ package application;
 	
 import javafx.application.Application;
 import javafx.stage.Stage;
-import model.entities.Login;
+import model.services.Login;
 
 
 public class Main extends Application {
