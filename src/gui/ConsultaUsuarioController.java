@@ -34,11 +34,14 @@ public class ConsultaUsuarioController implements Initializable {
 	@FXML
 	private TextField txtPesquisaAnimal;
 	
+	public TextField getTxtPesquisaAnimal() {
+		return txtPesquisaAnimal;
+	}
+
 	@FXML
 	public void onBtnConsultarAnimal() {
 		LoadViewService lvs  = new LoadViewService();
 		lvs.loadView("/gui/ResultadoConsultaAnimalView.fxml");
-		
 	}
 	
 	@FXML
