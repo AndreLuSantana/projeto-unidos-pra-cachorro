@@ -21,14 +21,26 @@ public class Animal implements Serializable{
 	private String dispAdocaoAnimal;
 	private String tratamentosAnimal;
 	
+	
 	public Animal() {
 		
+	}
+	
+	public Animal(Integer idAnimal) {
+		this.idAnimal = idAnimal;
+	}
+	
+	public Animal(Integer idAnimal, String corAnimal, String sexoAnimal,Date dataResgateAnimal) {
+		this.idAnimal = idAnimal;
+		this.corAnimal = corAnimal;
+		this.sexoAnimal = sexoAnimal;
+		this.dataResgateAnimal = dataResgateAnimal;
 	}
 
 	public Animal(Integer idAnimal, Double tamanhoAnimal, Double pesoAnimal, String corAnimal, Date dataResgateAnimal,
 			String vacinasAnimal, String sexoAnimal, String prenhaAnimal, String devolvidoParaRuaAnimal,
 			String levadoCanilAnimal, String castradoAnimal, String dispAdocaoAnimal, String tratamentosAnimal) {
-		super();
+		
 		this.idAnimal = idAnimal;
 		this.tamanhoAnimal = tamanhoAnimal;
 		this.pesoAnimal = pesoAnimal;

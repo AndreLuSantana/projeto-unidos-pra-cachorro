@@ -1,7 +1,9 @@
 package model.services;
 
 import java.io.IOException;
+import java.util.function.Consumer;
 
+import gui.ResultadoConsultaAnimalController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -26,7 +28,7 @@ public class LoadViewService {
 		return mainScene;
 	}
 	
-	public synchronized void loadView(String absoluteName) {
+	public synchronized <T> void loadView(String absoluteName, Consumer <T> inicializacao) {
 			
 			try {
 				
@@ -41,6 +43,9 @@ public class LoadViewService {
 				mainVBox.getChildren().add(mainMenu);
 				mainVBox.getChildren().addAll(newVBox.getChildren());
 				
+				T controller = loader.getController();
+				inicializacao.accept(controller);
+				
 				
 			} catch (IOException e) {
 				
@@ -49,6 +54,7 @@ public class LoadViewService {
 			}
 		}
 
+	
 	public synchronized void loadViewMain(String absoluteName) {
 		
 		TelaPrincipal.getStage().close();
@@ -58,6 +64,8 @@ public class LoadViewService {
 			
 			
 	}
+	
+	
 	
 }
 

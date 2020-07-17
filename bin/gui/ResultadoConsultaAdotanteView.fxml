@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ResultadoConsultaAnimalController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ResultadoPesquisaAnimalController">
    <children>
-      <Label text="Consulta Animal">
+      <Label text="Consulta Adotante">
          <VBox.margin>
             <Insets left="5.0" top="5.0" />
          </VBox.margin>
@@ -30,10 +30,11 @@
       </ToolBar>
       <TableView fx:id="tableViewAnimal" prefHeight="303.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="columnID" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="columnCor" prefWidth="160.0" text="COR" />
-            <TableColumn fx:id="columnSexo" prefWidth="128.0" text="SEXO" />
-            <TableColumn fx:id="columnDate" prefWidth="124.0" text="DATA RESGATE" />
+          <TableColumn fx:id="tableViewID" prefWidth="42.0" text="ID" />
+          <TableColumn fx:id="tableViewDate" prefWidth="141.0" text="Nome" />
+            <TableColumn prefWidth="158.0" text="Endereço" />
+            <TableColumn prefWidth="84.0" text="Telefone" />
+            <TableColumn prefWidth="174.0" text="E-mail" />
         </columns>
       </TableView>
       <GridPane prefHeight="52.0" prefWidth="574.0">

@@ -13,7 +13,6 @@ public class Adotante implements Serializable{
 	private String enderecoAdotante;
 	private String telefoneAdotante;
 	private String emailAdotante;
-	
 	private Animal idAnimal;
 	
 	public Adotante() {

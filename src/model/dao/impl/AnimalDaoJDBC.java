@@ -83,19 +83,19 @@ public class AnimalDaoJDBC implements AnimalDao{
 					+ "castrado = ?, disponivelAdocao = ?, tratamentoRealizado = ? "
 					+ "WHERE id = ?");
 			
-			st.setInt(1, obj.getIdAnimal());
-			st.setDouble(2, obj.getTamanhoAnimal());
-			st.setDouble(3, obj.getPesoAnimal());
-			st.setString(4, obj.getCorAnimal());
-			st.setDate(5, new java.sql.Date(obj.getDataResgateAnimal().getTime()));
-			st.setString(6, obj.getVacinasAnimal());
-			st.setString(7, obj.getSexoAnimal());
-			st.setString(8, obj.getPrenhaAnimal());
-			st.setString(9, obj.getDevolvidoParaRuaAnimal());
-			st.setString(10, obj.getLevadoCanilAnimal());
-			st.setString(11, obj.getCastradoAnimal());
-			st.setString(12, obj.getDispAdocaoAnimal());
-			st.setString(13, obj.getTratamentosAnimal());
+			st.setDouble(1, obj.getTamanhoAnimal());
+			st.setDouble(2, obj.getPesoAnimal());
+			st.setString(3, obj.getCorAnimal());
+			st.setDate(4, new java.sql.Date(obj.getDataResgateAnimal().getTime()));
+			st.setString(5, obj.getVacinasAnimal());
+			st.setString(6, obj.getSexoAnimal());
+			st.setString(7, obj.getPrenhaAnimal());
+			st.setString(8, obj.getDevolvidoParaRuaAnimal());
+			st.setString(9, obj.getLevadoCanilAnimal());
+			st.setString(10, obj.getCastradoAnimal());
+			st.setString(11, obj.getDispAdocaoAnimal());
+			st.setString(12, obj.getTratamentosAnimal());
+			st.setInt(13, obj.getIdAnimal());
 			
 			st.executeQuery();
 			
@@ -112,7 +112,7 @@ public class AnimalDaoJDBC implements AnimalDao{
 	public void deleteById(int idAnimal) {
 		PreparedStatement st = null;
 		try {
-			st = conn.prepareStatement("Delete from animal where id = ?");
+			st = conn.prepareStatement("Delete from animal where idAnimal = ?");
 			
 			st.setInt(1, idAnimal);
 			
@@ -133,12 +133,15 @@ public class AnimalDaoJDBC implements AnimalDao{
 		ResultSet rs = null;
 		try {
 			st = conn.prepareStatement(
-				"SELECT * FROM department WHERE Id = ?");
+				"SELECT * FROM animal WHERE idAnimal = ?");
 			st.setInt(1, idAnimal);
 			rs = st.executeQuery();
 			if (rs.next()) {
 				Animal obj = new Animal();
 				obj.setIdAnimal(rs.getInt("idAnimal"));
+				obj.setCorAnimal(rs.getString("cor"));
+				obj.setSexoAnimal(rs.getString("sexo"));
+				obj.setDataResgateAnimal(rs.getDate("dataResgate"));
 				return obj;
 			}
 			return null;
@@ -193,5 +196,40 @@ public class AnimalDaoJDBC implements AnimalDao{
 			DB.closeResultSet(rs);
 		}
 	}
+
+	@Override
+	public List<Animal> findTableView() {
+
+			PreparedStatement st = null;
+			ResultSet rs = null;
+			
+			try {
+				st = conn.prepareStatement(
+						"Select idAnimal, cor, sexo, dataResgate from animal "
+						+ "order by idAnimal "
+						);
+				rs = st.executeQuery();
+				
+				List <Animal> list = new ArrayList<>();
+				
+				while(rs.next()) {
+					Animal obj = new Animal();
+					obj.setIdAnimal(rs.getInt("idAnimal"));
+					obj.setCorAnimal(rs.getString("cor"));
+					obj.setSexoAnimal(rs.getString("sexo"));
+					obj.setDataResgateAnimal(rs.getDate("dataResgate"));
+					
+					list.add(obj);
+				}
+				return list;
+				
+			} catch (SQLException e) {
+				throw new DbException(e.getMessage());
+			}
+			finally {
+				DB.closeStatement(st);
+				DB.closeResultSet(rs);
+			}
+		}
 
 }

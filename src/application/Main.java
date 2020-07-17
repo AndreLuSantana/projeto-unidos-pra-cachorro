@@ -11,8 +11,6 @@ public class Main extends Application {
 		
 		Login lg = new Login();
 		lg.start(new Stage());
-		
-		
 	}
 	
 	public static void main(String[] args) {

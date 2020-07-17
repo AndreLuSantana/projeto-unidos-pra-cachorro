@@ -31,37 +31,37 @@ public class MainViewController implements Initializable {
 	@FXML
 	public void onMenuItemCadastrarAnimalAction() {
 		LoadViewService lvs  = new LoadViewService();
-		lvs.loadView("/gui/CadastroAnimalView.fxml");
+		lvs.loadView("/gui/CadastroAnimalView.fxml",x->{});
 	}
 		
 	@FXML
 	public void onMenuItemCadastrarUsuarioAction() {
 		LoadViewService lvs  = new LoadViewService();
-		lvs.loadView("/gui/CadastroUsuarioView.fxml");
+		lvs.loadView("/gui/CadastroUsuarioView.fxml",x->{});
 	}
 	
 	@FXML
 	public void onMenuItemCadastrarAdotanteAction() {
 		LoadViewService lvs  = new LoadViewService();
-		lvs.loadView("/gui/CadastroAdotanteView.fxml");
+		lvs.loadView("/gui/CadastroAdotanteView.fxml",x->{});
 	}
 	
 	@FXML
 	public void onMenuItemConsultarAnimalAction() {
 		LoadViewService lvs  = new LoadViewService();
-		lvs.loadView("/gui/ConsultaAnimalView.fxml");
+		lvs.loadView("/gui/ConsultaAnimalView.fxml",x->{});
 	}
 	
 	@FXML
 	public void onMenuItemConsultarUsuarioAction() {
 		LoadViewService lvs  = new LoadViewService();
-		lvs.loadView("/gui/ConsultaUsuarioView.fxml");
+		lvs.loadView("/gui/ConsultaUsuarioView.fxml",x->{});
 	}
 	
 	@FXML
 	public void onMenuItemConsultarAdotanteAction() {
 		LoadViewService lvs  = new LoadViewService();
-		lvs.loadView("/gui/ConsultaAdotanteView.fxml");
+		lvs.loadView("/gui/ConsultaAdotanteView.fxml",x->{});
 	}
 
 	@Override

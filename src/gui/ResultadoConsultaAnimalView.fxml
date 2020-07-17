@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ResultadoPesquisaAnimalController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ResultadoConsultaAnimalController">
    <children>
       <Label text="Consulta Animal">
          <VBox.margin>
@@ -30,10 +30,10 @@
       </ToolBar>
       <TableView fx:id="tableViewAnimal" prefHeight="303.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="tableViewID" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="tableViewDate" prefWidth="160.0" text="DATA RESGATE" />
-            <TableColumn fx:id="tableViewCor" prefWidth="128.0" text="COR" />
-            <TableColumn fx:id="tableViewSexo" prefWidth="124.0" text="SEXO" />
+          <TableColumn fx:id="columnID" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="columnCor" prefWidth="160.0" text="COR" />
+            <TableColumn fx:id="columnSexo" prefWidth="128.0" text="SEXO" />
+            <TableColumn fx:id="columnDate" prefWidth="124.0" text="DATA RESGATE" />
         </columns>
       </TableView>
       <GridPane prefHeight="52.0" prefWidth="574.0">
@@ -54,7 +54,7 @@
             <HBox prefHeight="38.0" prefWidth="299.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label prefHeight="17.0" prefWidth="406.0" text="*Clicar duas vezes no item desejado para abrir o cadastro" GridPane.rowIndex="1">
                <font>
-                  <Font size="10.0" />
+                  <Font name="System Bold Italic" size="12.0" />
                </font>
             </Label>
          </children>

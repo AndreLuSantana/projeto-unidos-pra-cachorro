@@ -8,7 +8,7 @@ public interface AdotanteDao {
 
 	void insert(Adotante obj);
 	void update(Adotante obj);
-	void deleteByName(String nomeAdotante);
+	void deleteById(int idAdotante);
 	Adotante findByName(String nomeAdotante);
 	List <Adotante> findAll();
 	

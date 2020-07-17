@@ -22,30 +22,28 @@ import model.services.Login;
 import model.services.TelaPrincipal;
 
 public class ConsultaUsuarioController implements Initializable {
-
-	
 	
 	@FXML
-	private Button btnConsultarAnimal;
+	private Button btnConsultarUsuario;
 	
 	@FXML
-	private Button btnCancelarConsultaAnimal;
+	private Button btnCancelarConsultaUsuario;
 	
 	@FXML
-	private TextField txtPesquisaAnimal;
+	private TextField txtPesquisaUsuario;
 	
-	public TextField getTxtPesquisaAnimal() {
-		return txtPesquisaAnimal;
+	public TextField getTxtPesquisaUsuario() {
+		return this.txtPesquisaUsuario;
 	}
 
 	@FXML
-	public void onBtnConsultarAnimal() {
+	public void onBtnConsultarUsuarioAction() {
 		LoadViewService lvs  = new LoadViewService();
-		lvs.loadView("/gui/ResultadoConsultaAnimalView.fxml");
+		lvs.loadView("/gui/ResultadoConsultaUsuarioView.fxml", x->{});
 	}
 	
 	@FXML
-	public void onBtnCancelarConsultaAnimal() {
+	public void onBtnCancelarConsultaUsuarioAction() {
 		
 		LoadViewService lvs  = new LoadViewService();
 		lvs.loadViewMain("/gui/MainView.fxml");
@@ -55,21 +53,21 @@ public class ConsultaUsuarioController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
-		btnConsultarAnimal.setOnKeyPressed((KeyEvent e) -> {
+		btnConsultarUsuario.setOnKeyPressed((KeyEvent e) -> {
 			if(e.getCode() == KeyCode.ENTER) {
-				onBtnConsultarAnimal();
+				onBtnConsultarUsuarioAction();
 			}
 		});
 		
-		btnCancelarConsultaAnimal.setOnKeyPressed((KeyEvent e) -> {
+		btnCancelarConsultaUsuario.setOnKeyPressed((KeyEvent e) -> {
 			if(e.getCode() == KeyCode.ENTER) {
-				onBtnCancelarConsultaAnimal();
+				onBtnCancelarConsultaUsuarioAction();
 			}
 		});
 		
-		txtPesquisaAnimal.setOnKeyPressed((KeyEvent e) -> {
+		txtPesquisaUsuario.setOnKeyPressed((KeyEvent e) -> {
 			if(e.getCode() == KeyCode.ENTER) {
-				onBtnConsultarAnimal();
+				onBtnConsultarUsuarioAction();
 			}
 		});
 	}
