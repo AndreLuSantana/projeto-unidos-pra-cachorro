@@ -4,12 +4,10 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
+<ScrollPane id="logo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" stylesheets="@logo.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
    <content>
       <VBox prefHeight="598.0" prefWidth="697.0">
          <children>
@@ -31,15 +29,7 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <HBox alignment="CENTER" prefHeight="369.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/2.2" xmlns:fx="http://javafx.com/fxml/1">
-               <children>
-                  <ImageView fitHeight="500.0" fitWidth="500.0" opacity="0.04" pickOnBounds="true" preserveRatio="false" x="0.0" HBox.hgrow="NEVER">
-                     <image>
-                        <Image url="@../../../../Desktop/André/Tecnologia/Projetos/Site_Cachorros/img/Fotos_Cachorros/Logo_UnidosPraCachorro.jpg" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
+            <HBox alignment="CENTER" prefHeight="369.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/2.2" xmlns:fx="http://javafx.com/fxml/1" />
          </children>
       </VBox>
    </content>

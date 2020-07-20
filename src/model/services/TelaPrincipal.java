@@ -25,10 +25,13 @@ public class TelaPrincipal extends Application{
 					FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainView.fxml"));
 					ScrollPane scrollpane = loader.load();
 					
+					scrollpane.setId("logo");
+					
 					scrollpane.setFitToHeight(true);
 					scrollpane.setFitToWidth(true);
 					
 					mainScene = new Scene(scrollpane); 
+					//mainScene.getStylesheets().addAll(this.getClass().getResource("logo.css").toExternalForm());
 					primaryStage.getIcons().add(new Image("/images/favicon.png"));
 					primaryStage.setScene(mainScene);
 					primaryStage.setTitle("UNIDOS PRA CACHORRO");

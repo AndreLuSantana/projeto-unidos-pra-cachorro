@@ -1,0 +1,6 @@
+#logo{
+    -fx-background-image: url("/images/Logo_UnidosPraCachorro.jpg");
+    -fx-background-repeat: stretch;   
+    -fx-background-size: 900 506;
+    -fx-background-position: center center;
+}

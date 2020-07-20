@@ -57,15 +57,22 @@ public class LoadViewService {
 	
 	public synchronized void loadViewMain(String absoluteName) {
 		
-		TelaPrincipal.getStage().close();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
+		try {
+			ScrollPane scrollPane = loader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		TelaPrincipal tp = new TelaPrincipal();
-		tp.start(new Stage());
-			
-			
+		mainScene = TelaPrincipal.getMainScene();
+		VBox mainVBox = (VBox)((ScrollPane)mainScene.getRoot()).getContent();
+		
+		Node mainMenu = mainVBox.getChildren().get(0);
+		mainVBox.getChildren().clear();
+		mainVBox.getChildren().add(mainMenu);
+		
 	}
-	
-	
 	
 }
 
