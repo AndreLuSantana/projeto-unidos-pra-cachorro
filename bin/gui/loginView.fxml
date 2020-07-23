@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="414.0" style="-fx-background-color: #C0C0C;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LoginViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="304.0" prefWidth="414.0" style="-fx-background-color: #C0C0C;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LoginViewController">
    <children>
       <Label fx:id="lblStatus" layoutX="202.0" layoutY="14.0" prefHeight="25.0" prefWidth="183.0" textAlignment="CENTER" textFill="#bf0f0f" />
       <TextField fx:id="txtEmailLogin" layoutX="202.0" layoutY="70.0" prefHeight="25.0" prefWidth="183.0" promptText="E-mail" style="-fx-border-color: #1C1C1C;">
@@ -20,8 +20,8 @@
          <font>
             <Font size="14.0" />
          </font></PasswordField>
-      <Button fx:id="btnEntrarLogin" layoutX="250.0" layoutY="249.0" mnemonicParsing="false" onAction="#onBtnEntrarLoginAction" prefHeight="30.0" prefWidth="87.0" text="Entrar" underline="true" />
-      <AnchorPane opacity="0.67" prefHeight="300.0" prefWidth="183.0" style="-fx-background-color: #1C1C1C; -fx-border-color: #000;">
+      <Button fx:id="btnEntrarLogin" layoutX="250.0" layoutY="222.0" mnemonicParsing="false" onAction="#onBtnEntrarLoginAction" prefHeight="30.0" prefWidth="87.0" text="Entrar" underline="true" />
+      <AnchorPane opacity="0.67" prefHeight="304.0" prefWidth="183.0" style="-fx-background-color: #1C1C1C; -fx-border-color: #000;">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="16.0" layoutY="67.0" opacity="0.52" pickOnBounds="true" preserveRatio="true">
                <image>
