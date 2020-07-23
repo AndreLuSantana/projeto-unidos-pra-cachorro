@@ -81,7 +81,7 @@ public class ResultadoConsultaAnimalController implements Initializable{
 			Stage parentStage = Utils.currentStageMouse(event);
 			
 			if(event.getClickCount() == 2) {
-				createAnimalDialog("/gui/AnimalDialogCadastro.fxml", parentStage);
+				createAnimalDialog("/gui/AnimalDialogCadastroView.fxml", parentStage);
 			}
 		});
 	}
