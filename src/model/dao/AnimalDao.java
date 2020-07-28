@@ -12,6 +12,5 @@ public interface AnimalDao {
 	void deleteById(int idAnimal);
 	Animal findById(int idAnimal);
 	List <Animal> findAll();
-	List<Animal> findTableView();
 	
 }

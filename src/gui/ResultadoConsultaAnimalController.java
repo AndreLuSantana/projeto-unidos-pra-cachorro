@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import gui.listeners.DataChangeListener;
 import gui.util.Alerts;
 import gui.util.Utils;
 import javafx.collections.FXCollections;
@@ -28,10 +29,10 @@ import model.services.AnimalService;
 import model.services.LoadViewService;
 import model.services.TelaPrincipal;
 
-public class ResultadoConsultaAnimalController implements Initializable{
+public class ResultadoConsultaAnimalController implements Initializable, DataChangeListener{
 
 	private AnimalService service;
-	private ConsultaAnimalController controller = new ConsultaAnimalController();
+	private AnimalDialogCadastroController controller;
 	
 	@FXML 
 	private TableView<Animal> tableViewAnimal;
@@ -53,6 +54,15 @@ public class ResultadoConsultaAnimalController implements Initializable{
 		this.service = service;
 	}
 	
+	public void setAnimalDialogCadastroController(AnimalDialogCadastroController controller) {
+		this.controller = controller;
+	}
+	
+	public TableView<Animal> getTableViewAnimal() {
+		return tableViewAnimal;
+	}
+
+
 	@FXML 
 	private void onBtnNovaConsultaAction() {
 		
@@ -81,7 +91,12 @@ public class ResultadoConsultaAnimalController implements Initializable{
 			Stage parentStage = Utils.currentStageMouse(event);
 			
 			if(event.getClickCount() == 2) {
-				createAnimalDialog("/gui/AnimalDialogCadastroView.fxml", parentStage);
+
+				Integer id = tableViewAnimal.getSelectionModel().getSelectedItem().getIdAnimal();
+				Animal obj = service.findByID(id);
+
+				createAnimalDialog(obj, "/gui/AnimalDialogCadastroView.fxml", parentStage);
+
 			}
 		});
 	}
@@ -92,7 +107,7 @@ public class ResultadoConsultaAnimalController implements Initializable{
 			throw new IllegalStateException("Serviço não está sendo executado.");
 		}
 		
-		List<Animal> list = service.findTableView();
+		List<Animal> list = service.findAll();
 		obsList = FXCollections.observableArrayList(list);
 		tableViewAnimal.setItems(obsList);
 			
@@ -114,12 +129,19 @@ public class ResultadoConsultaAnimalController implements Initializable{
 		}
 	}
 	
-	public void createAnimalDialog(String absoluteName, Stage parentStage) {
+	public void createAnimalDialog(Animal obj, String absoluteName, Stage parentStage) {
 		
 		try {
 			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
 			Pane pane = loader.load();	
+			
+			AnimalDialogCadastroController controller = loader.getController();
+			controller.setEntidade(obj);
+			controller.setService(new AnimalService());
+			controller.subScribeDataChangeListener(this);
+			controller.atualizarLabelAnimal();
+			
 			
 			Stage dialogStage = new Stage();
 			dialogStage.getIcons().add(new Image("/images/favicon.png"));
@@ -135,6 +157,12 @@ public class ResultadoConsultaAnimalController implements Initializable{
 			Alerts.showAlert("IO Exception", "Error loading View", e.getMessage(), AlertType.ERROR);
 		}
 		
+		
+	}
+
+	@Override
+	public void onDataChanged() {
+		 atualizarTabela();
 		
 	}
 }

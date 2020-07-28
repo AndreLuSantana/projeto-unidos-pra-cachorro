@@ -97,7 +97,7 @@ public class AnimalDaoJDBC implements AnimalDao{
 			st.setString(12, obj.getTratamentosAnimal());
 			st.setInt(13, obj.getIdAnimal());
 			
-			st.executeQuery();
+			st.executeUpdate();
 			
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
@@ -116,7 +116,7 @@ public class AnimalDaoJDBC implements AnimalDao{
 			
 			st.setInt(1, idAnimal);
 			
-			st.executeQuery();
+			st.executeUpdate();
 			
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
@@ -140,8 +140,17 @@ public class AnimalDaoJDBC implements AnimalDao{
 				Animal obj = new Animal();
 				obj.setIdAnimal(rs.getInt("idAnimal"));
 				obj.setCorAnimal(rs.getString("cor"));
-				obj.setSexoAnimal(rs.getString("sexo"));
+				obj.setTamanhoAnimal(rs.getDouble("tamanho"));
+				obj.setPesoAnimal(rs.getDouble("peso"));
 				obj.setDataResgateAnimal(rs.getDate("dataResgate"));
+				obj.setVacinasAnimal(rs.getString("vacinas"));
+				obj.setSexoAnimal(rs.getString("sexo"));
+				obj.setPrenhaAnimal(rs.getString("prenha"));
+				obj.setDevolvidoParaRuaAnimal(rs.getString("devolvidoParaRua"));
+				obj.setLevadoCanilAnimal(rs.getString("levadoCanil"));
+				obj.setCastradoAnimal(rs.getString("castrado"));
+				obj.setDispAdocaoAnimal(rs.getString("disponivelAdocao"));
+				obj.setTratamentosAnimal(rs.getString("tratamentoRealizado"));
 				return obj;
 			}
 			return null;
@@ -163,7 +172,7 @@ public class AnimalDaoJDBC implements AnimalDao{
 		try {
 			st = conn.prepareStatement(
 					"Select * from animal "
-					+ "order by id "
+					+ "order by idAnimal "
 					);
 			rs = st.executeQuery();
 			
@@ -196,40 +205,4 @@ public class AnimalDaoJDBC implements AnimalDao{
 			DB.closeResultSet(rs);
 		}
 	}
-
-	@Override
-	public List<Animal> findTableView() {
-
-			PreparedStatement st = null;
-			ResultSet rs = null;
-			
-			try {
-				st = conn.prepareStatement(
-						"Select idAnimal, cor, sexo, dataResgate from animal "
-						+ "order by idAnimal "
-						);
-				rs = st.executeQuery();
-				
-				List <Animal> list = new ArrayList<>();
-				
-				while(rs.next()) {
-					Animal obj = new Animal();
-					obj.setIdAnimal(rs.getInt("idAnimal"));
-					obj.setCorAnimal(rs.getString("cor"));
-					obj.setSexoAnimal(rs.getString("sexo"));
-					obj.setDataResgateAnimal(rs.getDate("dataResgate"));
-					
-					list.add(obj);
-				}
-				return list;
-				
-			} catch (SQLException e) {
-				throw new DbException(e.getMessage());
-			}
-			finally {
-				DB.closeStatement(st);
-				DB.closeResultSet(rs);
-			}
-		}
-
 }

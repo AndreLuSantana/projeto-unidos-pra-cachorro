@@ -29,10 +29,6 @@ public class AnimalService {
 		return dao.findAll();
 	}
 	
-	public List<Animal> findTableView(){
-		return dao.findTableView();	
-	}
-	
 	public Animal findByID(int idAnimal){
 		return dao.findById(idAnimal);
 	}
