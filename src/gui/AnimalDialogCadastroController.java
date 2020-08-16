@@ -1,5 +1,6 @@
 package gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,15 +12,21 @@ import gui.listeners.DataChangeListener;
 import gui.util.Alerts;
 import gui.util.Utils;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import model.entities.Animal;
 import model.services.AnimalService;
 
-public class AnimalDialogCadastroController implements Initializable{ 
+public class AnimalDialogCadastroController implements Initializable, DataChangeListener{ 
 
 	private Animal entidade;
 	private AnimalService service;
@@ -105,25 +112,18 @@ public class AnimalDialogCadastroController implements Initializable{
 
 	}
 	
-	private void notifyDataChangeListener() {
+	public void notifyDataChangeListener() {
 		for(DataChangeListener listener : dataChangeListeners) {
 			listener.onDataChanged();
 		}
 	}
 	
 	
-	public void onBtnActionExcluir(Integer id) {
-		
-		
-		
-		service.deleteById(id);
-		notifyDataChangeListener();
-	}
-
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		
 		onBtnVoltar.setOnAction(event ->{
+			notifyDataChangeListener();
 			Utils.currentStage(event).close();
 		});
 		
@@ -146,15 +146,52 @@ public class AnimalDialogCadastroController implements Initializable{
 					}
 				}
 			}
+		});
+
+		onBtnAlterar.setOnAction(event ->{
+			Stage parentStage = Utils.currentStage(event);
+
+			Integer id = Utils.tryParseToInt(idAnimal.getText());
+			Animal obj = service.findByID(id);
 			
-			
+			createAnimalDialogForm(obj, "/gui/AnimalDialogCadastroFormView.fxml", parentStage);
+			notifyDataChangeListener();
+			parentStage.close();
+
 		});
 	}
-
 	
+	public void createAnimalDialogForm(Animal obj, String absoluteName, Stage parentStage) {
+
+		try {
+
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
+			Pane pane = loader.load();	
+
+			AnimalDialogCadastroFormController controller = loader.getController();
+			controller.setEntidade(obj);
+			controller.setService(new AnimalService());
+			controller.atualizarFormAnimal();;
 
 
+			Stage dialogStage = new Stage();
+			dialogStage.getIcons().add(new Image("/images/favicon.png"));
+			dialogStage.setTitle("Alterar Cadastro do Animal");
+			dialogStage.setScene(new Scene(pane));
+			dialogStage.setResizable(false);
+			dialogStage.initOwner(parentStage);
+			dialogStage.initModality(Modality.WINDOW_MODAL);
+			dialogStage.showAndWait();
 
+		}
+		catch(IOException e) {
+			Alerts.showAlert("IO Exception", "Error loading View", e.getMessage(), AlertType.ERROR);
+		}
+	}
 
-
+	@Override
+	public void onDataChanged() {
+		
+		
+	}
 }

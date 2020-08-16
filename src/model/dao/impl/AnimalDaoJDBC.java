@@ -1,6 +1,7 @@
 package model.dao.impl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,7 +30,7 @@ public class AnimalDaoJDBC implements AnimalDao{
 		try {
 			st = conn.prepareStatement(
 					"Insert into animal "
-					+ "(idAnimal, tamanho, peso, cor, dataResgate, vacinas, sexo, prenha "
+					+ "(idAnimal, tamanho, peso, cor, dataResgate, vacinas, sexo, prenha, "
 					+ "devolvidoParaRua, levadoCanil, castrado, disponivelAdocao, tratamentoRealizado) "
 					+ "VALUES "
 					+ "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -39,7 +40,7 @@ public class AnimalDaoJDBC implements AnimalDao{
 					st.setDouble(2, obj.getTamanhoAnimal());
 					st.setDouble(3, obj.getPesoAnimal());
 					st.setString(4, obj.getCorAnimal());
-					st.setDate(5, new java.sql.Date(obj.getDataResgateAnimal().getTime()));
+					st.setString(5, obj.getDataResgateAnimal());
 					st.setString(6, obj.getVacinasAnimal());
 					st.setString(7, obj.getSexoAnimal());
 					st.setString(8, obj.getPrenhaAnimal());
@@ -78,15 +79,15 @@ public class AnimalDaoJDBC implements AnimalDao{
 		try {
 			st = conn.prepareStatement(
 					"Update animal "
-					+ "set tamanho = ?, peso = ?, cor = ?, dataResgate = ?, vacinas = ? "
-					+ "sexo = ?, prenha = ?, devolvidoParaRua = ?, levadoCanil = ? "
+					+ "set tamanho = ?, peso = ?, cor = ?, dataResgate = ?, vacinas = ?, "
+					+ "sexo = ?, prenha = ?, devolvidoParaRua = ?, levadoCanil = ?, "
 					+ "castrado = ?, disponivelAdocao = ?, tratamentoRealizado = ? "
-					+ "WHERE id = ?");
+					+ "WHERE idAnimal = ?");
 			
 			st.setDouble(1, obj.getTamanhoAnimal());
 			st.setDouble(2, obj.getPesoAnimal());
 			st.setString(3, obj.getCorAnimal());
-			st.setDate(4, new java.sql.Date(obj.getDataResgateAnimal().getTime()));
+			st.setString(4, obj.getDataResgateAnimal());
 			st.setString(5, obj.getVacinasAnimal());
 			st.setString(6, obj.getSexoAnimal());
 			st.setString(7, obj.getPrenhaAnimal());
@@ -142,7 +143,7 @@ public class AnimalDaoJDBC implements AnimalDao{
 				obj.setCorAnimal(rs.getString("cor"));
 				obj.setTamanhoAnimal(rs.getDouble("tamanho"));
 				obj.setPesoAnimal(rs.getDouble("peso"));
-				obj.setDataResgateAnimal(rs.getDate("dataResgate"));
+				obj.setDataResgateAnimal(rs.getString("dataResgate"));
 				obj.setVacinasAnimal(rs.getString("vacinas"));
 				obj.setSexoAnimal(rs.getString("sexo"));
 				obj.setPrenhaAnimal(rs.getString("prenha"));
@@ -184,7 +185,7 @@ public class AnimalDaoJDBC implements AnimalDao{
 				obj.setCorAnimal(rs.getString("cor"));
 				obj.setTamanhoAnimal(rs.getDouble("tamanho"));
 				obj.setPesoAnimal(rs.getDouble("peso"));
-				obj.setDataResgateAnimal(rs.getDate("dataResgate"));
+				obj.setDataResgateAnimal(rs.getString("dataResgate"));
 				obj.setVacinasAnimal(rs.getString("vacinas"));
 				obj.setSexoAnimal(rs.getString("sexo"));
 				obj.setPrenhaAnimal(rs.getString("prenha"));

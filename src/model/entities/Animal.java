@@ -11,7 +11,7 @@ public class Animal implements Serializable{
 	private Double tamanhoAnimal;
 	private Double pesoAnimal;
 	private String corAnimal;
-	private Date dataResgateAnimal;
+	private String dataResgateAnimal;
 	private String vacinasAnimal;
 	private String sexoAnimal;
 	private String prenhaAnimal;
@@ -30,14 +30,14 @@ public class Animal implements Serializable{
 		this.idAnimal = idAnimal;
 	}
 	
-	public Animal(Integer idAnimal, String corAnimal, String sexoAnimal,Date dataResgateAnimal) {
+	public Animal(Integer idAnimal, String corAnimal, String sexoAnimal,String dataResgateAnimal) {
 		this.idAnimal = idAnimal;
 		this.corAnimal = corAnimal;
 		this.sexoAnimal = sexoAnimal;
 		this.dataResgateAnimal = dataResgateAnimal;
 	}
 
-	public Animal(Integer idAnimal, Double tamanhoAnimal, Double pesoAnimal, String corAnimal, Date dataResgateAnimal,
+	public Animal(Integer idAnimal, Double tamanhoAnimal, Double pesoAnimal, String corAnimal, String dataResgateAnimal,
 			String vacinasAnimal, String sexoAnimal, String prenhaAnimal, String devolvidoParaRuaAnimal,
 			String levadoCanilAnimal, String castradoAnimal, String dispAdocaoAnimal, String tratamentosAnimal) {
 		
@@ -88,11 +88,11 @@ public class Animal implements Serializable{
 		this.corAnimal = corAnimal;
 	}
 
-	public Date getDataResgateAnimal() {
+	public String getDataResgateAnimal() {
 		return dataResgateAnimal;
 	}
 
-	public void setDataResgateAnimal(Date dataResgateAnimal) {
+	public void setDataResgateAnimal(String dataResgateAnimal) {
 		this.dataResgateAnimal = dataResgateAnimal;
 	}
 
