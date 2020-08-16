@@ -15,14 +15,11 @@
    <children>
       <Label text="Consulta Animal">
          <VBox.margin>
-            <Insets />
+            <Insets left="5.0" top="5.0" />
          </VBox.margin>
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
-         <padding>
-            <Insets left="5.0" top="5.0" />
-         </padding>
       </Label>
       <GridPane prefHeight="78.0" prefWidth="589.0">
         <columnConstraints>
@@ -41,7 +38,7 @@
                <children>
                   <Button fx:id="btnCancelarConsultaAnimal" mnemonicParsing="false" onAction="#onBtnCancelarConsultaAnimalAction" prefHeight="25.0" prefWidth="66.0" text="Cancelar">
                      <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
+                        <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Button>
                   <Button fx:id="btnConsultarAnimal" mnemonicParsing="false" onAction="#onBtnConsultarAnimalAction" text="Consultar">
@@ -53,9 +50,9 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Pesquisar:">
+                  <Label prefHeight="17.0" prefWidth="59.0" text="Pesquisar:">
                      <HBox.margin>
-                        <Insets left="10.0" top="5.0" />
+                        <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </Label>
                   <TextField fx:id="txtPesquisaAnimal" onAction="#getTxtPesquisaAnimal" promptText="Informar o ID do animal">

@@ -15,14 +15,11 @@
    <children>
       <Label text="Consulta Usuário">
          <VBox.margin>
-            <Insets />
+            <Insets left="5.0" top="5.0" />
          </VBox.margin>
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
-         <padding>
-            <Insets left="5.0" top="5.0" />
-         </padding>
       </Label>
       <GridPane prefHeight="78.0" prefWidth="589.0">
         <columnConstraints>
@@ -41,7 +38,7 @@
                <children>
                   <Button fx:id="btnCancelarConsultaUsuario" mnemonicParsing="false" onAction="#onBtnCancelarConsultaUsuarioAction" prefHeight="25.0" prefWidth="66.0" text="Cancelar">
                      <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
+                        <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Button>
                   <Button fx:id="btnConsultarUsuario" mnemonicParsing="false" onAction="#onBtnConsultarUsuarioAction" text="Consultar">
@@ -55,7 +52,7 @@
                <children>
                   <Label text="Pesquisar:">
                      <HBox.margin>
-                        <Insets left="10.0" top="5.0" />
+                        <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </Label>
                   <TextField fx:id="txtPesquisaUsuario" prefHeight="25.0" prefWidth="218.0" promptText="Informar o nome do usuário">
