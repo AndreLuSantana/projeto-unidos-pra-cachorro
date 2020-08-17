@@ -15,7 +15,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ResultadoConsultaUsuarioController">
    <children>
-      <Label text="Consulta Usuáro">
+      <Label text="Consulta Usuário">
          <VBox.margin>
             <Insets left="5.0" top="5.0" />
          </VBox.margin>
@@ -28,12 +28,11 @@
           <Button fx:id="btnNovaConsulta" mnemonicParsing="false" onAction="#onBtnNovaConsultaAction" text="Nova Consulta" />
         </items>
       </ToolBar>
-      <TableView fx:id="tableViewAnimal" prefHeight="303.0" prefWidth="600.0">
+      <TableView fx:id="tableViewUsuario" prefHeight="303.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="tableViewID" prefWidth="42.0" text="ID" />
-          <TableColumn fx:id="tableViewNome" prefWidth="213.0" text="Nome" />
-            <TableColumn fx:id="tableViewSenha" prefWidth="86.0" text="Senha" />
-            <TableColumn fx:id="tableViewEmail" prefWidth="258.0" text="E-mail" />
+          <TableColumn fx:id="columnID" prefWidth="42.0" text="ID" />
+          <TableColumn fx:id="columnNome" prefWidth="306.0" text="Nome" />
+            <TableColumn fx:id="columnEmail" prefWidth="251.0" text="E-mail" />
         </columns>
       </TableView>
       <GridPane prefHeight="52.0" prefWidth="574.0">

@@ -1,28 +1,18 @@
 package gui;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import gui.util.Constraints;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import model.dao.DaoFactory;
-import model.services.AnimalService;
 import model.services.LoadViewService;
-import model.services.Login;
-import model.services.TelaPrincipal;
+import model.services.UsuarioService;
 
 public class ConsultaUsuarioController implements Initializable {
 	
@@ -63,7 +53,7 @@ public class ConsultaUsuarioController implements Initializable {
 			
 		lvs.loadView("/gui/ResultadoConsultaUsuarioView.fxml", (ResultadoConsultaUsuarioController controller)->
 		{
-			controller.setUsuarioService(new AnimalService());
+			controller.setUsuarioService(new UsuarioService());
 			
 			if(txtPesquisaUsuario.getText().equals("")) {
 				controller.atualizarTabela();
@@ -101,7 +91,7 @@ public class ConsultaUsuarioController implements Initializable {
 		
 		getTxtPesquisaUsuario().setOnKeyPressed((KeyEvent e) -> {
 			if(e.getCode() == KeyCode.ENTER) {
-				onBtnConsultarAnimalAction();
+				onBtnConsultarUsuarioAction();
 			}
 		});
 	}

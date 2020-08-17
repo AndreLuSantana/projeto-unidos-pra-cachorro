@@ -28,7 +28,7 @@ public List<Usuario> findAll(){
 	return dao.findAll();
 }
 
-public Usuario findByName(String nomeUsuario){
+public List<Usuario> findByName(String nomeUsuario){
 	return dao.findByName(nomeUsuario);
 }
 	

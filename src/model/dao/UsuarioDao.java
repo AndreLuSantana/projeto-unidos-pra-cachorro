@@ -10,7 +10,7 @@ public interface UsuarioDao {
 	void update(Usuario obj);
 	void deleteById(int idUsuario);
 	Boolean checkLogin(String emailUsuario, String senhaUsuario);
-	Usuario findByName(String nomeUsuario);
+	List <Usuario> findByName(String nomeUsuario);
 	List <Usuario> findAll();
 	
 }
