@@ -25,7 +25,7 @@ public class UsuarioDialogCadastroFormController implements Initializable{
 	private Usuario entidade;
 	private UsuarioService service;
 	private UsuarioDialogCadastroController usuarioController;
-	private ResultadoConsultaUsuarioController controller;
+	private UsuarioResultadoConsultaController controller;
 	
 	
 	@FXML
@@ -58,7 +58,7 @@ public class UsuarioDialogCadastroFormController implements Initializable{
 		this.usuarioController = usuarioController;
 	}
 	
-	public void setController(ResultadoConsultaUsuarioController controller) {
+	public void setController(UsuarioResultadoConsultaController controller) {
 		this.controller = controller;
 	}
 	

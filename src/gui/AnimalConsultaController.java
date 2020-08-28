@@ -14,7 +14,7 @@ import javafx.scene.input.KeyEvent;
 import model.services.AnimalService;
 import model.services.LoadViewService;
 
-public class ConsultaAnimalController implements Initializable {
+public class AnimalConsultaController implements Initializable {
 
 	
 	
@@ -50,7 +50,7 @@ public class ConsultaAnimalController implements Initializable {
 		
 		LoadViewService lvs  = new LoadViewService();
 			
-		lvs.loadView("/gui/ResultadoConsultaAnimalView.fxml", (ResultadoConsultaAnimalController controller)->
+		lvs.loadView("/gui/AnimalResultadoConsultaView.fxml", (AnimalResultadoConsultaController controller)->
 		{
 			controller.setAnimalService(new AnimalService());
 			

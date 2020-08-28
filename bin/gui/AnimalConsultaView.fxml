@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ConsultaUsuarioController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AnimalConsultaController">
    <children>
-      <Label text="Consulta Usuário">
+      <Label text="Consulta Animal">
          <VBox.margin>
             <Insets left="5.0" top="5.0" />
          </VBox.margin>
@@ -23,8 +23,8 @@
       </Label>
       <GridPane prefHeight="78.0" prefWidth="589.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="515.0" minWidth="10.0" prefWidth="515.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="290.0" minWidth="10.0" prefWidth="75.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -36,12 +36,12 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="btnCancelarConsultaUsuario" mnemonicParsing="false" onAction="#onBtnCancelarConsultaUsuarioAction" prefHeight="25.0" prefWidth="66.0" text="Cancelar">
+                  <Button fx:id="btnCancelarConsultaAnimal" mnemonicParsing="false" onAction="#onBtnCancelarConsultaAnimalAction" prefHeight="25.0" prefWidth="66.0" text="Cancelar">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btnConsultarUsuario" mnemonicParsing="false" onAction="#onBtnConsultarUsuarioAction" text="Consultar">
+                  <Button fx:id="btnConsultarAnimal" mnemonicParsing="false" onAction="#onBtnConsultarAnimalAction" text="Consultar">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
@@ -50,16 +50,24 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Pesquisar:">
+                  <Label prefHeight="17.0" prefWidth="59.0" text="Pesquisar:">
                      <HBox.margin>
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="txtPesquisaUsuario" prefHeight="25.0" prefWidth="218.0" promptText="Informar o nome do usuário">
+                  <TextField fx:id="txtPesquisaAnimal" onAction="#getTxtPesquisaAnimal" promptText="Informar o ID do animal">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
                   </TextField>
+                  <Label fx:id="txtErro" prefHeight="23.0" prefWidth="291.0" textFill="#e80606">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
                <GridPane.margin>
                   <Insets top="10.0" />
@@ -70,7 +78,7 @@
             <Insets top="10.0" />
          </padding>
       </GridPane>
-      <Label text="* Para realizar uma pesquisa sem especificar o usuário, basta apertar o botão &quot;Consultar&quot;.">
+      <Label text="* Para realizar uma pesquisa sem especificar o animal, basta apertar o botão &quot;Consultar&quot;.">
          <VBox.margin>
             <Insets left="10.0" top="40.0" />
          </VBox.margin>

@@ -14,7 +14,7 @@ import javafx.scene.input.KeyEvent;
 import model.services.LoadViewService;
 import model.services.UsuarioService;
 
-public class ConsultaUsuarioController implements Initializable {
+public class UsuarioConsultaController implements Initializable {
 	
 	@FXML
 	private Button btnConsultarUsuario;
@@ -47,7 +47,7 @@ public class ConsultaUsuarioController implements Initializable {
 		
 		LoadViewService lvs  = new LoadViewService();
 			
-		lvs.loadView("/gui/ResultadoConsultaUsuarioView.fxml", (ResultadoConsultaUsuarioController controller)->
+		lvs.loadView("/gui/UsuarioResultadoConsultaView.fxml", (UsuarioResultadoConsultaController controller)->
 		{
 			controller.setUsuarioService(new UsuarioService());
 			

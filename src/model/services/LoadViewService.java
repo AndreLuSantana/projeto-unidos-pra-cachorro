@@ -3,7 +3,7 @@ package model.services;
 import java.io.IOException;
 import java.util.function.Consumer;
 
-import gui.ResultadoConsultaAnimalController;
+import gui.AnimalResultadoConsultaController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;

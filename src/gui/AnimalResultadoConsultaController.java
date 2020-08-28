@@ -2,6 +2,7 @@ package gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -23,41 +24,42 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import model.entities.Usuario;
+import model.entities.Animal;
+import model.services.AnimalService;
 import model.services.LoadViewService;
 import model.services.TelaPrincipal;
-import model.services.UsuarioService;
 
-public class ResultadoConsultaUsuarioController implements Initializable, DataChangeListener{
+public class AnimalResultadoConsultaController implements Initializable, DataChangeListener{
 
-	private UsuarioService service;
-	private UsuarioDialogCadastroController controller;
+	private AnimalService service;
+	private AnimalDialogCadastroController controller;
 	
 	@FXML 
-	private TableView<Usuario> tableViewUsuario;
+	private TableView<Animal> tableViewAnimal;
 	@FXML 
-	private TableColumn<Usuario, Integer> columnID;
+	private TableColumn<Animal, Integer> columnID;
 	@FXML 
-	private TableColumn<Usuario, String> columnNome;
+	private TableColumn<Animal, String> columnCor;
 	@FXML 
-	private TableColumn<Usuario, String> columnEmail;
-	
+	private TableColumn<Animal, String> columnSexo;
+	@FXML 
+	private TableColumn<Animal, Date> columnDate;
 	
 	@FXML 
 	private Button btnNovaConsulta;
 	
-	private	ObservableList<Usuario> obsList;
+	private	ObservableList<Animal> obsList;
 	
-	public void setUsuarioService(UsuarioService service) {
+	public void setAnimalService(AnimalService service) {
 		this.service = service;
 	}
 	
-	public void setUsuarioDialogCadastroController(UsuarioDialogCadastroController controller) {
+	public void setAnimalDialogCadastroController(AnimalDialogCadastroController controller) {
 		this.controller = controller;
 	}
 	
-	public TableView<Usuario> getTableViewUsuario() {
-		return tableViewUsuario;
+	public TableView<Animal> getTableViewAnimal() {
+		return tableViewAnimal;
 	}
 
 
@@ -65,7 +67,7 @@ public class ResultadoConsultaUsuarioController implements Initializable, DataCh
 	private void onBtnNovaConsultaAction() {
 		
 		LoadViewService lvs  = new LoadViewService();
-		lvs.loadView("/gui/ConsultaUsuarioView.fxml",x->{});
+		lvs.loadView("/gui/ConsultaAnimalView.fxml",x->{});
 	}
 	
 	@Override
@@ -76,23 +78,24 @@ public class ResultadoConsultaUsuarioController implements Initializable, DataCh
 
 	private void initializeNodes() {
 		
-		columnID.setCellValueFactory(new PropertyValueFactory<>("idUsuario"));
-		columnNome.setCellValueFactory(new PropertyValueFactory<>("nomeUsuario"));
-		columnEmail.setCellValueFactory(new PropertyValueFactory<>("emailUsuario"));
+		columnID.setCellValueFactory(new PropertyValueFactory<>("idAnimal"));
+		columnCor.setCellValueFactory(new PropertyValueFactory<>("corAnimal"));
+		columnSexo.setCellValueFactory(new PropertyValueFactory<>("sexoAnimal"));
+		columnDate.setCellValueFactory(new PropertyValueFactory<>("dataResgateAnimal"));
 		
 		//Comando para fazer com que a tableView tenha o tamanho da janela e possa redimencionado junto com a janela.
 		Stage stage = (Stage)TelaPrincipal.getMainScene().getWindow(); 
-		tableViewUsuario.prefHeightProperty().bind(stage.heightProperty());
+		tableViewAnimal.prefHeightProperty().bind(stage.heightProperty());
 		
-		tableViewUsuario.setOnMouseClicked(event ->{
+		tableViewAnimal.setOnMouseClicked(event ->{
 			Stage parentStage = Utils.currentStageMouse(event);
 			
 			if(event.getClickCount() == 2) {
 
-				int id = tableViewUsuario.getSelectionModel().getSelectedItem().getIdUsuario();
-				Usuario obj = service.findByID(id);
+				Integer id = tableViewAnimal.getSelectionModel().getSelectedItem().getIdAnimal();
+				Animal obj = service.findByID(id);
 
-				createUsuarioDialog(obj, "/gui/UsuarioDialogCadastroView.fxml", parentStage);
+				createAnimalDialog(obj, "/gui/AnimalDialogCadastroView.fxml", parentStage);
 
 			}
 		});
@@ -104,45 +107,45 @@ public class ResultadoConsultaUsuarioController implements Initializable, DataCh
 			throw new IllegalStateException("Serviço não está sendo executado.");
 		}
 		
-		List<Usuario> list = service.findAll();
+		List<Animal> list = service.findAll();
 		obsList = FXCollections.observableArrayList(list);
-		tableViewUsuario.setItems(obsList);
+		tableViewAnimal.setItems(obsList);
 			
 	}
 	
-	public void localizaPorNome(String txtField) {
+	public void localizaPorId(String txtField) {
 		
-		List<Usuario> list = service.findByName(txtField);
-		obsList = FXCollections.observableArrayList(list);
-		tableViewUsuario.setItems(obsList);
-		
-		if(list == null){
+		Animal obj = service.findByID(Utils.tryParseToInt(txtField));
+		if(obj != null) {
+			obsList = FXCollections.observableArrayList(obj);
+			tableViewAnimal.setItems(obsList);
+		}else{
 			LoadViewService lvs  = new LoadViewService();
-			lvs.loadView("/gui/ConsultaUsuarioView.fxml", (ConsultaUsuarioController controller)->{
-				controller.getTxtErro().setText("* Nenhum usuário encontrado com este nome");
-				controller.getTxtPesquisaUsuario().setText("");
+			lvs.loadView("/gui/AnimalConsultaView.fxml", (AnimalConsultaController controller)->{
+				controller.getTxtErro().setText("* Nenhum animal encontrado com este ID");
+				controller.getTxtPesquisaAnimal().setText("");
 				
 			});
 		}
 	}
 	
-	public void createUsuarioDialog(Usuario obj, String absoluteName, Stage parentStage) {
+	public void createAnimalDialog(Animal obj, String absoluteName, Stage parentStage) {
 		
 		try {
 			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
 			Pane pane = loader.load();	
 			
-			UsuarioDialogCadastroController controller = loader.getController();
+			AnimalDialogCadastroController controller = loader.getController();
 			controller.setEntidade(obj);
-			controller.setService(new UsuarioService());
+			controller.setService(new AnimalService());
 			controller.subScribeDataChangeListener(this);
-			controller.atualizarLabelUsuario();
+			controller.atualizarLabelAnimal();
 			
 			
 			Stage dialogStage = new Stage();
 			dialogStage.getIcons().add(new Image("/images/favicon.png"));
-			dialogStage.setTitle("Cadastro do Usuario");
+			dialogStage.setTitle("Cadastro do Animal");
 			dialogStage.setScene(new Scene(pane));
 			dialogStage.setResizable(false);
 			dialogStage.initOwner(parentStage);
@@ -162,5 +165,4 @@ public class ResultadoConsultaUsuarioController implements Initializable, DataCh
 		 atualizarTabela();
 		
 	}
-
 }

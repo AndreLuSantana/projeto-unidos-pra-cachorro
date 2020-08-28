@@ -19,7 +19,7 @@ import model.services.AnimalService;
 import model.services.LoadViewService;
 import model.services.TelaPrincipal;
 
-public class ResultadoConsultaAdotanteController implements Initializable{
+public class AdotanteResultadoConsultaController implements Initializable{
 
 	
 	@FXML 
@@ -42,7 +42,7 @@ public class ResultadoConsultaAdotanteController implements Initializable{
 	private void onBtnNovaConsultaAction() {
 		
 		LoadViewService lvs  = new LoadViewService();
-		lvs.loadView("/gui/ConsultaAnimalView.fxml",x->{});
+		lvs.loadView("/gui/AdotanteConsultaView.fxml",x->{});
 	}
 	
 	@Override

@@ -25,7 +25,7 @@ public class AnimalDialogCadastroFormController implements Initializable{
 	private Animal entidade;
 	private AnimalService service;
 	private AnimalDialogCadastroController animalController;
-	private ResultadoConsultaAnimalController controller;
+	private AnimalResultadoConsultaController controller;
 	
 	
 	@FXML
@@ -86,7 +86,7 @@ public class AnimalDialogCadastroFormController implements Initializable{
 		this.animalController = animalController;
 	}
 	
-	public void setController(ResultadoConsultaAnimalController controller) {
+	public void setController(AnimalResultadoConsultaController controller) {
 		this.controller = controller;
 	}
 	
