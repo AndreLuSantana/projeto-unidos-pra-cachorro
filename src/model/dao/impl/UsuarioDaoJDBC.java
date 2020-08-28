@@ -71,13 +71,13 @@ public class UsuarioDaoJDBC implements UsuarioDao{
 		try {
 			st = conn.prepareStatement(
 					"Update usuarios "
-					+ "set idUsuario = ?, nomeUsuario = ?, senhaUsuario = ?, emailUsuario = ? "
-					+ "WHERE id = ?");
+					+ "set nomeUsuario = ?, senhaUsuario = ?, emailUsuario = ? "
+					+ "WHERE idUsuario = ?");
 			
-			st.setInt(1, obj.getIdUsuario());
-			st.setString(2, obj.getNomeUsuario());
-			st.setString(3, obj.getSenhaUsuario());
-			st.setString(4, obj.getEmailUsuario());
+			st.setString(1, obj.getNomeUsuario());
+			st.setString(2, obj.getSenhaUsuario());
+			st.setString(3, obj.getEmailUsuario());
+			st.setInt(4, obj.getIdUsuario());
 			
 			st.executeUpdate();
 			
@@ -95,7 +95,7 @@ public class UsuarioDaoJDBC implements UsuarioDao{
 		
 		PreparedStatement st = null;
 		try {
-			st = conn.prepareStatement("Delete from usuarios where id = ?");
+			st = conn.prepareStatement("Delete from usuarios where idUsuario = ?");
 			
 			st.setInt(1, idUsuario);
 			
@@ -108,6 +108,35 @@ public class UsuarioDaoJDBC implements UsuarioDao{
 			DB.closeStatement(st);
 		}
 		
+	}
+	
+	@Override
+	public Usuario findById(int idUsuario) {
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			st = conn.prepareStatement(
+				"SELECT * FROM usuarios WHERE idUsuario = ?");
+			st.setInt(1, idUsuario);
+			rs = st.executeQuery();
+			if (rs.next()) {
+				Usuario obj = new Usuario();
+				obj.setIdUsuario(rs.getInt("idUsuario"));
+				obj.setNomeUsuario(rs.getString("nomeUsuario"));
+				obj.setEmailUsuario(rs.getString("emailUsuario"));
+				obj.setSenhaUsuario(rs.getString("senhaUsuario"));
+				
+				return obj;
+			}
+			return null;
+		}
+		catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		}
+		finally {
+			DB.closeStatement(st);
+			DB.closeResultSet(rs);
+		}
 	}
 
 	@Override
@@ -127,6 +156,7 @@ public class UsuarioDaoJDBC implements UsuarioDao{
 				obj.setIdUsuario(rs.getInt("idUsuario"));
 				obj.setNomeUsuario(rs.getString("nomeUsuario"));
 				obj.setEmailUsuario(rs.getString("emailUsuario"));
+				obj.setSenhaUsuario(rs.getString("senhaUsuario"));
 
 				list.add(obj);
 			}

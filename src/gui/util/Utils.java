@@ -1,7 +1,5 @@
 package gui.util;
 
-import java.util.Date;
-
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
@@ -26,12 +24,6 @@ public class Utils {
 
 	public static Double tryParseToDouble(String str) {
 		return Double.parseDouble(str);
-	}
-
-	public static long tryParseToDate(String str) {
-		
-		Date data = new Date();
-		return data.parse(str);
 	}
 
 }

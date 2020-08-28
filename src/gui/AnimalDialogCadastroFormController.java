@@ -143,7 +143,6 @@ public class AnimalDialogCadastroFormController implements Initializable{
 						throw new IllegalStateException("Service is null");
 					}
 					try {
-						setAnimalDialogCadastroController(animalController);
 						int id = Utils.tryParseToInt(idAnimal.getText());
 						entidade = service.findByID(id);
 						atualizarAnimal(entidade);
@@ -151,7 +150,6 @@ public class AnimalDialogCadastroFormController implements Initializable{
 						
 						Alerts.showAlert("ALTERAÇÃO REALIZADA", null, "Cadastro alterado com sucesso!", AlertType.CONFIRMATION);
 						Utils.currentStage(event).close();
-						
 						
 					}
 					catch(DbException e) {

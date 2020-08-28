@@ -2,7 +2,6 @@ package gui;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -14,18 +13,17 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import model.entities.Animal;
 import model.entities.Usuario;
-import model.services.AnimalService;
 import model.services.LoadViewService;
 import model.services.TelaPrincipal;
 import model.services.UsuarioService;
@@ -89,14 +87,14 @@ public class ResultadoConsultaUsuarioController implements Initializable, DataCh
 		tableViewUsuario.setOnMouseClicked(event ->{
 			Stage parentStage = Utils.currentStageMouse(event);
 			
-			/*if(event.getClickCount() == 2) {
+			if(event.getClickCount() == 2) {
 
-				String nome = tableViewUsuario.getSelectionModel().getSelectedItem().getNomeUsuario();
-				List<Usuario> obj = service.findByName(nome);
+				int id = tableViewUsuario.getSelectionModel().getSelectedItem().getIdUsuario();
+				Usuario obj = service.findByID(id);
 
 				createUsuarioDialog(obj, "/gui/UsuarioDialogCadastroView.fxml", parentStage);
 
-			}*/
+			}
 		});
 	}
 	
@@ -121,8 +119,8 @@ public class ResultadoConsultaUsuarioController implements Initializable, DataCh
 		if(list == null){
 			LoadViewService lvs  = new LoadViewService();
 			lvs.loadView("/gui/ConsultaUsuarioView.fxml", (ConsultaUsuarioController controller)->{
-				controller.getTxtErro().setText("* Nenhum usuário encontrado com este ID");
-				controller.getTxtPesquisaAnimal().setText("");
+				controller.getTxtErro().setText("* Nenhum usuário encontrado com este nome");
+				controller.getTxtPesquisaUsuario().setText("");
 				
 			});
 		}
@@ -137,14 +135,14 @@ public class ResultadoConsultaUsuarioController implements Initializable, DataCh
 			
 			UsuarioDialogCadastroController controller = loader.getController();
 			controller.setEntidade(obj);
-			controller.setService(new AnimalService());
+			controller.setService(new UsuarioService());
 			controller.subScribeDataChangeListener(this);
-			controller.atualizarLabelAnimal();
+			controller.atualizarLabelUsuario();
 			
 			
 			Stage dialogStage = new Stage();
 			dialogStage.getIcons().add(new Image("/images/favicon.png"));
-			dialogStage.setTitle("Cadastro do Animal");
+			dialogStage.setTitle("Cadastro do Usuario");
 			dialogStage.setScene(new Scene(pane));
 			dialogStage.setResizable(false);
 			dialogStage.initOwner(parentStage);

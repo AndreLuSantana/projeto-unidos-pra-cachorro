@@ -4,32 +4,37 @@ import java.util.List;
 
 import model.dao.DaoFactory;
 import model.dao.UsuarioDao;
+import model.entities.Animal;
 import model.entities.Usuario;
 
 public class UsuarioService {
 
-private UsuarioDao dao = DaoFactory.createUsuarioDao();
-
-
-public void insertOrUpdate(Usuario obj) {
+	private UsuarioDao dao = DaoFactory.createUsuarioDao();
 	
-	if(obj == null) {
-		dao.insert(obj);
-	}else {
-		dao.update(obj);
+	
+	public void insertOrUpdate(Usuario obj) {
+	
+		if(obj == null) {
+			dao.insert(obj);
+		}else {
+			dao.update(obj);
+		}
 	}
-}
-
-public void deleteById(int idUsuario) {
-	dao.deleteById(idUsuario);
-}
-
-public List<Usuario> findAll(){
-	return dao.findAll();
-}
-
-public List<Usuario> findByName(String nomeUsuario){
-	return dao.findByName(nomeUsuario);
-}
 	
+	public void deleteById(int idUsuario) {
+		dao.deleteById(idUsuario);
+	}
+	
+	public List<Usuario> findAll(){
+		return dao.findAll();
+	}
+	
+	public List<Usuario> findByName(String nomeUsuario){
+		return dao.findByName(nomeUsuario);
+	}
+	
+	public Usuario findByID(int idUsuario){
+		return dao.findById(idUsuario);
+	}
+
 }

@@ -33,10 +33,6 @@ public class ConsultaUsuarioController implements Initializable {
 	}
 
 	
-	public TextField getTxtPesquisaAnimal() {
-		return this.txtPesquisaUsuario;
-	}
-	
 	public Label getTxtErro() {
 		return txtErro;
 	}
