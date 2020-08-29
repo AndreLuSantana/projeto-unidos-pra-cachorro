@@ -13,7 +13,7 @@ import db.DbException;
 import model.dao.AdotanteDao;
 import model.entities.Adotante;
 import model.entities.Animal;
-import model.entities.Usuario;
+import model.entities.Adotante;
 
 public class AdotanteDaoJDBC implements AdotanteDao{
 	
@@ -79,10 +79,10 @@ public class AdotanteDaoJDBC implements AdotanteDao{
 			st.setInt(2, new Animal().getIdAnimal());
 			st.setString(3, obj.getNomeAdotante());
 			st.setString(4, obj.getEnderecoAdotante());
-			st.setString(4, obj.getTelefoneAdotante());
-			st.setString(4, obj.getEmailAdotante());
+			st.setString(5, obj.getTelefoneAdotante());
+			st.setString(6, obj.getEmailAdotante());
 			
-			st.executeQuery();
+			st.executeUpdate();
 			
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
@@ -114,21 +114,30 @@ public class AdotanteDaoJDBC implements AdotanteDao{
 	}
 
 	@Override
-	public Adotante findByName(String nomeAdotante) {
+	public List<Adotante> findByName(String nomeAdotante) {
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
 			st = conn.prepareStatement(
-				"SELECT * FROM department WHERE nomeAdotante = ?");
-			st.setString(1, nomeAdotante);
+				"SELECT * FROM usuarios WHERE nomeAdotante like ? ");
+			st.setString(1, "%" + nomeAdotante + "%");
 			rs = st.executeQuery();
-			if (rs.next()) {
+			
+			List <Adotante> list = new ArrayList<>();
+			
+			while(rs.next()) {
 				Adotante obj = new Adotante();
+				obj.setIdAdotante(rs.getInt("idAdotante"));
+				Animal animal = new Animal();
+				obj.setIdAnimal(rs.(animal.getIdAnimal()));
 				obj.setNomeAdotante(rs.getString("nomeAdotante"));
+				obj.setEnderecoAdotante(rs.getString("enderecoAdotante"));
+				obj.setTelefoneAdotante(rs.getString("enderecoAdotante"));
 				obj.setEmailAdotante(rs.getString("emailAdotante"));
-				return obj;
+
+				list.add(obj);
 			}
-			return null;
+			return list;
 		}
 		catch (SQLException e) {
 			throw new DbException(e.getMessage());

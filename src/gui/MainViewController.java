@@ -31,19 +31,19 @@ public class MainViewController implements Initializable {
 	@FXML
 	public void onMenuItemCadastrarAnimalAction() {
 		LoadViewService lvs  = new LoadViewService();
-		lvs.loadView("/gui/AnimalCadastroView.fxml",x->{});
+		lvs.loadView("/gui/AnimalFormCadastroView.fxml",x->{});
 	}
 		
 	@FXML
 	public void onMenuItemCadastrarUsuarioAction() {
 		LoadViewService lvs  = new LoadViewService();
-		lvs.loadView("/gui/UsuarioCadastroView.fxml",x->{});
+		lvs.loadView("/gui/UsuarioFormCadastroView.fxml",x->{});
 	}
 	
 	@FXML
 	public void onMenuItemCadastrarAdotanteAction() {
 		LoadViewService lvs  = new LoadViewService();
-		lvs.loadView("/gui/AdotanteCadastroView.fxml",x->{});
+		lvs.loadView("/gui/AdotanteFormCadastroView.fxml",x->{});
 	}
 	
 	@FXML

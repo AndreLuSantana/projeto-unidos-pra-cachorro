@@ -67,7 +67,7 @@ public class AnimalResultadoConsultaController implements Initializable, DataCha
 	private void onBtnNovaConsultaAction() {
 		
 		LoadViewService lvs  = new LoadViewService();
-		lvs.loadView("/gui/ConsultaAnimalView.fxml",x->{});
+		lvs.loadView("/gui/AnimalConsultaView.fxml",x->{});
 	}
 	
 	@Override
