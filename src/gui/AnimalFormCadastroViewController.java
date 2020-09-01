@@ -1,6 +1,7 @@
 package gui;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -23,7 +24,7 @@ import model.services.LoadViewService;
 public class AnimalFormCadastroViewController implements Initializable{
 	
 	private Animal entidade;
-	private AnimalService service;
+	private AnimalService service = new AnimalService();;
 	
 
     @FXML
@@ -112,8 +113,26 @@ public class AnimalFormCadastroViewController implements Initializable{
     	service = this.service;
     }
     
+    public Animal instanciarAnimal(Animal obj) {
+    	
+    	obj.setTamanhoAnimal(Utils.tryParseToDouble(tamanhoAnimal.getText()));
+    	obj.setPesoAnimal(Utils.tryParseToDouble(pesoAnimal.getText()));
+    	obj.setCorAnimal(corAnimal.getText());
+    	obj.setDataResgateAnimal(pegarDataDatePicker(dataResgasteAnimal));
+    	obj.setVacinasAnimal(vacinasAnimal.getText());
+    	obj.setSexoAnimal(valorCheckBoxSexo(sexoMacho, sexoFemea));
+    	obj.setPrenhaAnimal(valorCheckBox(prenhaSim, prenhaNao));
+    	obj.setDevolvidoParaRuaAnimal(valorCheckBox(devolvidoSim, devolvidoNao));
+    	obj.setLevadoCanilAnimal(valorCheckBox(canilSim, canilNao));
+    	obj.setCastradoAnimal(valorCheckBox(castradoSim, castradoNao));
+    	obj.setDispAdocaoAnimal(valorCheckBox(adocaoSim, adocaoNao));
+    	obj.setTratamentosAnimal(tratamentoAnimal.getText());
+    	
+    	return obj;
+    }
     
-    public void verificarDuplicidadeSelecao(CheckBox box1, CheckBox box2, Label label) {
+    
+    public void verificarDuplicidadeSelecaoCheckBox(CheckBox box1, CheckBox box2) {
     	
     	box1.setOnMouseClicked(event ->{
     		if(box1.isSelected() && box2.isSelected()) {
@@ -132,6 +151,33 @@ public class AnimalFormCadastroViewController implements Initializable{
     	);
     }
     
+    public String valorCheckBoxSexo(CheckBox box1, CheckBox box2) {
+    	
+    	if(box1.isSelected()) {
+    		return "Macho";
+    	}else if(box2.isSelected()){
+    		return "Fêmea";
+    	}
+    	return null;
+    }
+    
+	public String valorCheckBox(CheckBox box1, CheckBox box2) {
+	    	
+	    	if(box1.isSelected()) {
+	    		return "Sim";
+	    	}else if(box2.isSelected()){
+	    		return "Não";
+	    	}
+	    	return null;
+	 }
+    
+    public String pegarDataDatePicker(DatePicker dp) {
+    	
+    	LocalDate ld = dp.getValue();
+    	String date = ld.toString();
+    	return date;
+    }
+    
     public void apagarCampos() {
     	
     	LoadViewService lvs  = new LoadViewService();
@@ -143,14 +189,13 @@ public class AnimalFormCadastroViewController implements Initializable{
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		
-		setService(new AnimalService());
 		
-		verificarDuplicidadeSelecao(sexoMacho, sexoFemea, lblSexoAnimal);
-		verificarDuplicidadeSelecao(prenhaSim, prenhaNao, lblPrenhaAnimal);
-		verificarDuplicidadeSelecao(devolvidoSim, devolvidoNao, lblDevolvidoRuaAnimal);
-		verificarDuplicidadeSelecao(canilSim, canilNao, lblLevadoCanilAnimal);
-		verificarDuplicidadeSelecao(castradoSim, castradoNao, lblCastradoAnimal);
-		verificarDuplicidadeSelecao(adocaoSim, adocaoNao, lblDisponivelAdocaoAnimal);
+		verificarDuplicidadeSelecaoCheckBox(sexoMacho, sexoFemea);
+		verificarDuplicidadeSelecaoCheckBox(prenhaSim, prenhaNao);
+		verificarDuplicidadeSelecaoCheckBox(devolvidoSim, devolvidoNao);
+		verificarDuplicidadeSelecaoCheckBox(canilSim, canilNao);
+		verificarDuplicidadeSelecaoCheckBox(castradoSim, castradoNao);
+		verificarDuplicidadeSelecaoCheckBox(adocaoSim, adocaoNao);
 		
 		btnCancelar.setOnAction(event -> {
 			Utils.currentStage(event);
@@ -168,7 +213,24 @@ public class AnimalFormCadastroViewController implements Initializable{
 		btnSalvar.setOnAction(event -> {
 			Utils.currentStage(event);
 			
-			
+			if(event != null) {
+				Optional <ButtonType> resultado = Alerts.mostrarConfirmacao("CONFIRMAR CADASTRAMENTO", "Você tem certeza que deseja cadastrar este animal?");
+				
+				if(resultado.get() == ButtonType.OK) {
+					
+					Alerts.showAlert("CADASTRO EFETUADO", null, "Cadastro realizado com sucesso", AlertType.CONFIRMATION);
+					
+					Animal animal = new Animal();
+					instanciarAnimal(animal);
+					service.insertOrUpdate(animal);
+					apagarCampos();
+					
+				}else {
+					
+					Alerts.showAlert("CADASTRO CANCELADO", null, "Cadastramento Cancelado", AlertType.CONFIRMATION);
+					apagarCampos();
+				}
+			}
 		});
 		
 	}

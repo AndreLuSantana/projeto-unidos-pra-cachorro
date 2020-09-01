@@ -30,25 +30,24 @@ public class AnimalDaoJDBC implements AnimalDao{
 		try {
 			st = conn.prepareStatement(
 					"Insert into animal "
-					+ "(idAnimal, tamanho, peso, cor, dataResgate, vacinas, sexo, prenha, "
+					+ "(tamanho, peso, cor, dataResgate, vacinas, sexo, prenha, "
 					+ "devolvidoParaRua, levadoCanil, castrado, disponivelAdocao, tratamentoRealizado) "
 					+ "VALUES "
-					+ "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+					+ "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 					Statement.RETURN_GENERATED_KEYS);
 			
-					st.setInt(1, obj.getIdAnimal());
-					st.setDouble(2, obj.getTamanhoAnimal());
-					st.setDouble(3, obj.getPesoAnimal());
-					st.setString(4, obj.getCorAnimal());
-					st.setString(5, obj.getDataResgateAnimal());
-					st.setString(6, obj.getVacinasAnimal());
-					st.setString(7, obj.getSexoAnimal());
-					st.setString(8, obj.getPrenhaAnimal());
-					st.setString(9, obj.getDevolvidoParaRuaAnimal());
-					st.setString(10, obj.getLevadoCanilAnimal());
-					st.setString(11, obj.getCastradoAnimal());
-					st.setString(12, obj.getDispAdocaoAnimal());
-					st.setString(13, obj.getTratamentosAnimal());
+					st.setDouble(1, obj.getTamanhoAnimal());
+					st.setDouble(2, obj.getPesoAnimal());
+					st.setString(3, obj.getCorAnimal());
+					st.setString(4, obj.getDataResgateAnimal());
+					st.setString(5, obj.getVacinasAnimal());
+					st.setString(6, obj.getSexoAnimal());
+					st.setString(7, obj.getPrenhaAnimal());
+					st.setString(8, obj.getDevolvidoParaRuaAnimal());
+					st.setString(9, obj.getLevadoCanilAnimal());
+					st.setString(10, obj.getCastradoAnimal());
+					st.setString(11, obj.getDispAdocaoAnimal());
+					st.setString(12, obj.getTratamentosAnimal());
 					
 					int rownsAfectted = st.executeUpdate();
 					

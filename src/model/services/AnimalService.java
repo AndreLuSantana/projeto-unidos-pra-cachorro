@@ -14,7 +14,7 @@ public class AnimalService {
 	
 	public void insertOrUpdate(Animal obj) {
 		
-		if(obj == null) {
+		if(obj.getIdAnimal() == null) {
 			dao.insert(obj);
 		}else {
 			dao.update(obj);
