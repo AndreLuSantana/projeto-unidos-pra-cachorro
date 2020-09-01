@@ -115,11 +115,21 @@ public class AnimalFormCadastroViewController implements Initializable{
     
     public void verificarDuplicidadeSelecao(CheckBox box1, CheckBox box2, Label label) {
     	
-    	if(box1.isSelected() && box2.isSelected()) {
-    		box1.setSelected(false);
-    		box2.setSelected(false);
-    		label.setText("Selecione apenas uma opção.");
+    	box1.setOnMouseClicked(event ->{
+    		if(box1.isSelected() && box2.isSelected()) {
+        		box1.setSelected(true);
+        		box2.setSelected(false);
+    		}
     	}
+    	);
+    	
+    	box2.setOnMouseClicked(event ->{
+    		if(box1.isSelected() && box2.isSelected()) {
+        		box1.setSelected(false);
+        		box2.setSelected(true);
+    		}
+    	}
+    	);
     }
     
     public void apagarCampos() {
@@ -134,6 +144,13 @@ public class AnimalFormCadastroViewController implements Initializable{
 	public void initialize(URL url, ResourceBundle rb) {
 		
 		setService(new AnimalService());
+		
+		verificarDuplicidadeSelecao(sexoMacho, sexoFemea, lblSexoAnimal);
+		verificarDuplicidadeSelecao(prenhaSim, prenhaNao, lblPrenhaAnimal);
+		verificarDuplicidadeSelecao(devolvidoSim, devolvidoNao, lblDevolvidoRuaAnimal);
+		verificarDuplicidadeSelecao(canilSim, canilNao, lblLevadoCanilAnimal);
+		verificarDuplicidadeSelecao(castradoSim, castradoNao, lblCastradoAnimal);
+		verificarDuplicidadeSelecao(adocaoSim, adocaoNao, lblDisponivelAdocaoAnimal);
 		
 		btnCancelar.setOnAction(event -> {
 			Utils.currentStage(event);
@@ -150,12 +167,7 @@ public class AnimalFormCadastroViewController implements Initializable{
 			
 		btnSalvar.setOnAction(event -> {
 			Utils.currentStage(event);
-			verificarDuplicidadeSelecao(sexoMacho, sexoFemea, lblSexoAnimal);
-			verificarDuplicidadeSelecao(prenhaSim, prenhaNao, lblPrenhaAnimal);
-			verificarDuplicidadeSelecao(devolvidoSim, devolvidoNao, lblDevolvidoRuaAnimal);
-			verificarDuplicidadeSelecao(canilSim, canilNao, lblLevadoCanilAnimal);
-			verificarDuplicidadeSelecao(castradoSim, castradoNao, lblCastradoAnimal);
-			verificarDuplicidadeSelecao(adocaoSim, adocaoNao, lblDisponivelAdocaoAnimal);
+			
 			
 		});
 		
