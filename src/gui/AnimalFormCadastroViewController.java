@@ -178,6 +178,23 @@ public class AnimalFormCadastroViewController implements Initializable{
     	return date;
     }
     
+    public void constraintsCheckBoxes(CheckBox box1, CheckBox box2, CheckBox box3) {
+    	
+    	box1.setOnAction(event -> {
+    		if(box3.isSelected()) {
+        		box1.setSelected(false);
+        		box2.setSelected(true);
+        	}
+    	});
+    	
+    	box3.setOnAction(event -> {
+    		if(box3.isSelected()) {
+        		box1.setSelected(false);
+        		box2.setSelected(true);
+        	}
+    	});
+    }
+    
     public void apagarCampos() {
     	
     	LoadViewService lvs  = new LoadViewService();
@@ -192,8 +209,10 @@ public class AnimalFormCadastroViewController implements Initializable{
 		
 		verificarDuplicidadeSelecaoCheckBox(sexoMacho, sexoFemea);
 		verificarDuplicidadeSelecaoCheckBox(prenhaSim, prenhaNao);
+		constraintsCheckBoxes(prenhaSim, prenhaNao, sexoMacho);
 		verificarDuplicidadeSelecaoCheckBox(devolvidoSim, devolvidoNao);
 		verificarDuplicidadeSelecaoCheckBox(canilSim, canilNao);
+		constraintsCheckBoxes(canilSim, canilNao, devolvidoSim);
 		verificarDuplicidadeSelecaoCheckBox(castradoSim, castradoNao);
 		verificarDuplicidadeSelecaoCheckBox(adocaoSim, adocaoNao);
 		
