@@ -15,6 +15,10 @@ public class MainViewController implements Initializable {
 	
 	@FXML
 	private Menu telaPrincipal;
+	
+	@FXML
+	private MenuItem irTelaPrincipal;
+	
 	@FXML
 	private MenuItem menuCadastrarAnimal;
 	
@@ -35,8 +39,8 @@ public class MainViewController implements Initializable {
 	
 	@FXML
 	public void onMenuAction() {
-		TelaPrincipal tp = new TelaPrincipal();
-		tp.start(new Stage());
+		LoadViewService lvs  = new LoadViewService();
+		lvs.loadViewMain("/gui/MainView.fxml");
 	}
 	
 	@FXML

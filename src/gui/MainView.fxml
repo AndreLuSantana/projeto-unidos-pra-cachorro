@@ -13,7 +13,10 @@
          <children>
             <MenuBar>
               <menus>
-                  <Menu fx:id="telaPrincipal" mnemonicParsing="false" onAction="#onMenuAction" text="Principal" />
+                  <Menu fx:id="telaPrincipal" mnemonicParsing="false" onAction="#onMenuAction" text="Principal">
+                     <items>
+                        <MenuItem fx:id="irTelaPrincipal" mnemonicParsing="false" onAction="#onMenuAction" text="Tela Principal" />
+                     </items></Menu>
                 <Menu mnemonicParsing="false" text="Cadastro">
                   <items>
                     <MenuItem fx:id="menuCadastrarAnimal" mnemonicParsing="false" onAction="#onMenuItemCadastrarAnimalAction" text="Cadastrar Animal" />
