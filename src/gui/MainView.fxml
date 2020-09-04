@@ -4,7 +4,8 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
 <ScrollPane id="logo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" stylesheets="@logo.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainViewController">
@@ -33,7 +34,11 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <HBox alignment="CENTER" prefHeight="369.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/2.2" xmlns:fx="http://javafx.com/fxml/1" />
+            <ImageView fitHeight="569.0" fitWidth="695.0" opacity="0.1" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../../Desktop/André/Tecnologia/Projetos/Site_Cachorros/img/Fotos_Cachorros/Logo_UnidosPraCachorro.jpg" />
+               </image>
+            </ImageView>
          </children>
       </VBox>
    </content>

@@ -12,7 +12,7 @@ public class AdotanteService {
 
 	public void insertOrUpdate(Adotante obj) {
 
-		if(obj == null) {
+		if(obj.getIdAdotante() == null) {
 			dao.insert(obj);
 		}else {
 			dao.update(obj);

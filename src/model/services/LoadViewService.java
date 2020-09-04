@@ -3,11 +3,11 @@ package model.services;
 import java.io.IOException;
 import java.util.function.Consumer;
 
-import gui.AnimalResultadoConsultaController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 

@@ -14,7 +14,7 @@ public class UsuarioService {
 	
 	public void insertOrUpdate(Usuario obj) {
 	
-		if(obj == null) {
+		if(obj.getIdUsuario() == null) {
 			dao.insert(obj);
 		}else {
 			dao.update(obj);
