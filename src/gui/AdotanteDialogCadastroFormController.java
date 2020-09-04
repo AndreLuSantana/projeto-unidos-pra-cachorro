@@ -39,12 +39,19 @@ public class AdotanteDialogCadastroFormController implements Initializable{
 
 	@FXML
 	private TextField nomeAdotante;
+	
+	@FXML
+	private TextField enderecoAdotante;
 
+	@FXML
+	private TextField telefoneAdotante;
+	
 	@FXML
 	private TextField emailAdotante;
 	
 	@FXML
-	private TextField senhaAdotante;
+	private Label idAnimal;
+
 	
 	public void setEntidade(Adotante entidade) {
 		this.entidade = entidade;
@@ -64,11 +71,11 @@ public class AdotanteDialogCadastroFormController implements Initializable{
 	
 	public void atualizarFormAdotante() {
 		
-
 		idAdotante.setText(String.valueOf(entidade.getIdAdotante()));
-		nomeAdotante.setText(String.valueOf(entidade.getNomeAdotante()));
-		senhaAdotante.setText(String.valueOf(entidade.getSenhaAdotante()));
-		emailAdotante.setText(String.valueOf(entidade.getEmailAdotante()));
+		nomeAdotante.setText(entidade.getNomeAdotante());
+		enderecoAdotante.setText(entidade.getEnderecoAdotante());
+		telefoneAdotante.setText(entidade.getTelefoneAdotante());
+		emailAdotante.setText(entidade.getEmailAdotante());
 		
 		
 	}
@@ -77,9 +84,9 @@ public class AdotanteDialogCadastroFormController implements Initializable{
 		
 		entidade.setIdAdotante(Utils.tryParseToInt(idAdotante.getText()));
 		entidade.setNomeAdotante(nomeAdotante.getText());
-		entidade.setSenhaAdotante(senhaAdotante.getText());
+		entidade.setEnderecoAdotante(enderecoAdotante.getText());
+		entidade.setTelefoneAdotante(telefoneAdotante.getText());
 		entidade.setEmailAdotante(emailAdotante.getText());
-		
 		
 	}
 	
@@ -93,7 +100,7 @@ public class AdotanteDialogCadastroFormController implements Initializable{
 		onBtnSalvar.setOnAction(event -> {
 			Utils.currentStage(event);
 			if(event != null) {
-				Optional <ButtonType> resultado = Alerts.mostrarConfirmacao("CONFIRMAR ALTERAÇÃO", "Você tem certeza que deseja alterar os dados do usuário?");
+				Optional <ButtonType> resultado = Alerts.mostrarConfirmacao("CONFIRMAR ALTERAÇÃO", "Você tem certeza que deseja alterar os dados do adotante?");
 				
 				if(resultado.get() == ButtonType.OK) {
 					if(service == null) {

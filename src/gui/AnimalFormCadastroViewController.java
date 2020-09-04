@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import gui.util.Alerts;
+import gui.util.Constraints;
 import gui.util.Utils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -206,6 +207,8 @@ public class AnimalFormCadastroViewController implements Initializable{
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		
+		Constraints.setTextFieldDouble(tamanhoAnimal);
+		Constraints.setTextFieldDouble(pesoAnimal);
 		
 		verificarDuplicidadeSelecaoCheckBox(sexoMacho, sexoFemea);
 		verificarDuplicidadeSelecaoCheckBox(prenhaSim, prenhaNao);

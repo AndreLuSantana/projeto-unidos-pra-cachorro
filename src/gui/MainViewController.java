@@ -5,11 +5,16 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.stage.Stage;
 import model.services.LoadViewService;
+import model.services.TelaPrincipal;
 
 public class MainViewController implements Initializable {
 	
+	@FXML
+	private Menu telaPrincipal;
 	@FXML
 	private MenuItem menuCadastrarAnimal;
 	
@@ -27,6 +32,12 @@ public class MainViewController implements Initializable {
 	
 	@FXML
 	private MenuItem menuConsultarUsuario;
+	
+	@FXML
+	public void onMenuAction() {
+		TelaPrincipal tp = new TelaPrincipal();
+		tp.start(new Stage());
+	}
 	
 	@FXML
 	public void onMenuItemCadastrarAnimalAction() {
@@ -67,6 +78,9 @@ public class MainViewController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
+		telaPrincipal.setOnAction(event -> {
+			onMenuAction();
+		});
 		
 	}
 	

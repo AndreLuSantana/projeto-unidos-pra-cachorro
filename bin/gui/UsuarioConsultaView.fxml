@@ -15,7 +15,7 @@
    <children>
       <Label text="Consulta Usuário">
          <VBox.margin>
-            <Insets left="5.0" top="5.0" />
+            <Insets left="10.0" top="5.0" />
          </VBox.margin>
          <font>
             <Font name="System Bold" size="14.0" />
@@ -75,7 +75,7 @@
             <Insets left="10.0" top="40.0" />
          </VBox.margin>
          <font>
-            <Font name="System Italic" size="10.0" />
+            <Font name="System Italic" size="12.0" />
          </font>
       </Label>
    </children>

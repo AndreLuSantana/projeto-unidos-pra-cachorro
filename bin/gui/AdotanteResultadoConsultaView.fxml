@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ResultadoPesquisaAnimalController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdotanteResultadoConsultaController">
    <children>
       <Label text="Consulta Adotante">
          <VBox.margin>
@@ -28,13 +28,13 @@
           <Button fx:id="btnNovaConsulta" mnemonicParsing="false" onAction="#onBtnNovaConsultaAction" text="Nova Consulta" />
         </items>
       </ToolBar>
-      <TableView fx:id="tableViewAnimal" prefHeight="303.0" prefWidth="600.0">
+      <TableView fx:id="tableViewAdotante" prefHeight="303.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="tableViewID" prefWidth="42.0" text="ID" />
-          <TableColumn fx:id="tableViewDate" prefWidth="141.0" text="Nome" />
-            <TableColumn prefWidth="158.0" text="Endereço" />
-            <TableColumn prefWidth="84.0" text="Telefone" />
-            <TableColumn prefWidth="174.0" text="E-mail" />
+          <TableColumn fx:id="columnID" prefWidth="42.0" text="ID" />
+          <TableColumn fx:id="columnNome" prefWidth="141.0" text="Nome" />
+            <TableColumn fx:id="columnEndereco" prefWidth="158.0" text="Endereço" />
+            <TableColumn fx:id="columnTelefone" prefWidth="84.0" text="Telefone" />
+            <TableColumn fx:id="columnEmail" prefWidth="174.0" text="E-mail" />
         </columns>
       </TableView>
       <GridPane prefHeight="52.0" prefWidth="574.0">

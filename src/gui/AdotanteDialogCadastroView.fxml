@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="476.0" prefWidth="649.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AnimalDialogCadastroController">
+<AnchorPane prefHeight="476.0" prefWidth="649.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdotanteDialogCadastroController">
    <children>
       <GridPane layoutX="40.0" layoutY="24.0" prefHeight="291.0" prefWidth="589.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
         <columnConstraints>
@@ -34,67 +34,32 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Identificador (ID):">
+            <Label text="Identificador (ID):" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Label>
-            <Label text="Tamanho do animal:" GridPane.rowIndex="1">
+            <Label text="Nome do Adotante:" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Label>
-            <Label text="Peso do animal:" GridPane.rowIndex="2">
+            <Label text="Endereço do Adotante:" GridPane.rowIndex="5">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Label>
-            <Label text="Cor do animal:" GridPane.rowIndex="3">
+            <Label text="Telefone do Adotante:" GridPane.rowIndex="7">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Label>
-            <Label text="Data do Resgate do animal:" GridPane.rowIndex="4">
+            <Label text="E-mail do Adotante: " GridPane.rowIndex="9">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Label>
-            <Label text="Vacinas dadas ao animal:" GridPane.rowIndex="5">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </Label>
-            <Label text="Sexo do animal: (M/F)" GridPane.rowIndex="6">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </Label>
-            <Label text="Animal estava prenha? (S/N)" GridPane.rowIndex="7">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </Label>
-            <Label text="Animal levado ao Canil? (S/N)" GridPane.rowIndex="9">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </Label>
-            <Label text="Animal foi castrado? (S/N)" GridPane.rowIndex="10">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </Label>
-            <Label text="Animal disponível para adoção? (S/N)" GridPane.rowIndex="11">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </Label>
-            <Label text="Tratamentos realizados com o animal:" GridPane.rowIndex="12">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </Label>
-            <Label text="Animal devolvido para rua? (S/N)" GridPane.rowIndex="8">
+            <Label opacity="0.0" text="ID do animal adotado: " GridPane.rowIndex="11">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
@@ -117,46 +82,12 @@
                   <Insets left="50.0" right="-100.0" top="20.0" />
                </GridPane.margin>
             </HBox>
-            <Label fx:id="idAnimal" prefHeight="17.0" prefWidth="376.0" GridPane.columnIndex="1" />
-            <Label fx:id="pesoAnimal" prefHeight="17.0" prefWidth="402.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label fx:id="corAnimal" prefHeight="17.0" prefWidth="416.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="dataResgateAnimal" prefHeight="17.0" prefWidth="391.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label fx:id="vacinaAnimal" prefHeight="17.0" prefWidth="430.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label fx:id="sexoAnimal" prefHeight="17.0" prefWidth="404.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label fx:id="animalPrenha" prefHeight="17.0" prefWidth="410.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label fx:id="animalDevolvidoRua" prefHeight="17.0" prefWidth="379.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Label fx:id="animalLevadoCanil" prefHeight="17.0" prefWidth="429.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <Label fx:id="animalCastrado" prefHeight="17.0" prefWidth="426.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <Label fx:id="animalAdocao" prefHeight="17.0" prefWidth="422.0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-            <Label fx:id="tratamentosAnimal" prefHeight="17.0" prefWidth="385.0" GridPane.columnIndex="1" GridPane.rowIndex="12" />
-            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <children>
-                  <Label fx:id="tamanhoAnimal">
-                     <HBox.margin>
-                        <Insets right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label text="Metros">
-                     <HBox.margin>
-                        <Insets top="5.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <children>
-                  <Label fx:id="pesoAnimal">
-                     <padding>
-                        <Insets right="5.0" top="5.0" />
-                     </padding>
-                  </Label>
-                  <Label text="KG">
-                     <padding>
-                        <Insets top="5.0" />
-                     </padding>
-                  </Label>
-               </children>
-            </HBox>
+            <Label fx:id="nomeAdotante" prefHeight="17.0" prefWidth="416.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="enderecoAdotante" prefHeight="17.0" prefWidth="430.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="telefoneAdotante" prefHeight="17.0" prefWidth="410.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label fx:id="emailAdotante" prefHeight="17.0" prefWidth="429.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label fx:id="idAnimal" prefHeight="17.0" prefWidth="422.0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <Label fx:id="idAdotante" prefHeight="17.0" prefWidth="381.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>

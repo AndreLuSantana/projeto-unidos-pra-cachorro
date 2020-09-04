@@ -24,12 +24,15 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.entities.Adotante;
+import model.entities.Animal;
 import model.services.AdotanteService;
+import model.services.AnimalService;
 
 public class AdotanteDialogCadastroController implements Initializable, DataChangeListener{ 
 
 	private Adotante entidade;
 	private AdotanteService service;
+	private AnimalService serviceAnimal;
 	private List<DataChangeListener> dataChangeListeners = new ArrayList<>();
 	
 	@FXML
@@ -48,10 +51,16 @@ public class AdotanteDialogCadastroController implements Initializable, DataChan
 	private Label nomeAdotante;
 
 	@FXML
+	private Label enderecoAdotante;
+	
+	@FXML
+	private Label telefoneAdotante;
+	
+	@FXML
 	private Label emailAdotante;
 	
 	@FXML
-	private Label senhaAdotante;
+	private Label idAnimal;
 	
 	public void setEntidade(Adotante entidade) {
 		this.entidade = entidade;
@@ -59,6 +68,10 @@ public class AdotanteDialogCadastroController implements Initializable, DataChan
 	
 	public void setService(AdotanteService service) {
 		this.service = service;
+	}
+	
+	public void setServiceAnimal(AnimalService serviceAnimal) {
+		this.serviceAnimal = serviceAnimal;
 	}
 	
 	public void subScribeDataChangeListener(DataChangeListener listener) {
@@ -69,10 +82,11 @@ public class AdotanteDialogCadastroController implements Initializable, DataChan
 		
 
 		idAdotante.setText(String.valueOf(entidade.getIdAdotante()));
-		nomeAdotante.setText(String.valueOf(entidade.getNomeAdotante()));
-		emailAdotante.setText(String.valueOf(entidade.getEmailAdotante()));
-		senhaAdotante.setText(String.valueOf(entidade.getSenhaAdotante()));
-
+		nomeAdotante.setText(entidade.getNomeAdotante());
+		enderecoAdotante.setText(entidade.getEnderecoAdotante());
+		telefoneAdotante.setText(entidade.getTelefoneAdotante());
+		emailAdotante.setText(entidade.getEmailAdotante());
+		
 	}
 	
 	public void notifyDataChangeListener() {
@@ -93,7 +107,7 @@ public class AdotanteDialogCadastroController implements Initializable, DataChan
 		onBtnExcluir.setOnAction(event -> {
 			Utils.currentStage(event);
 			if(event != null) {
-				Optional <ButtonType> resultado = Alerts.mostrarConfirmacao("CONFIRMAR EXCLUSÃO", "Você tem certeza que deseja excluir o usuário do cadastro?");
+				Optional <ButtonType> resultado = Alerts.mostrarConfirmacao("CONFIRMAR EXCLUSÃO", "Você tem certeza que deseja excluir o adotante do cadastro?");
 				int id = Utils.tryParseToInt(idAdotante.getText());
 				if(resultado.get() == ButtonType.OK) {
 					if(service == null) {

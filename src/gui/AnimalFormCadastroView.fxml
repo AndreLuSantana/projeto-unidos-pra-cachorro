@@ -237,7 +237,7 @@
                   <Insets top="30.0" />
                </padding>
             </Label>
-            <DatePicker fx:id="dataResgasteAnimal" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <DatePicker fx:id="dataResgasteAnimal" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>

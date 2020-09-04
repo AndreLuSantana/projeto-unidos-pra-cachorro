@@ -31,7 +31,6 @@ public class AdotanteConsultaController implements Initializable {
 	public TextField getTxtPesquisaAdotante() {
 		return this.txtPesquisaAdotante;
 	}
-
 	
 	public Label getTxtErro() {
 		return txtErro;

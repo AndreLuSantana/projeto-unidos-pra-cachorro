@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AnimalConsultaController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdotanteConsultaController">
    <children>
       <Label text="Consulta Adotante">
          <VBox.margin>
@@ -36,12 +36,12 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
-                  <Button fx:id="btnCancelarConsultaAnimal" mnemonicParsing="false" onAction="#onBtnCancelarConsultaAnimalAction" prefHeight="25.0" prefWidth="66.0" text="Cancelar">
+                  <Button fx:id="btnCancelarConsultaAdotante" mnemonicParsing="false" onAction="#onBtnCancelarConsultaAdotanteAction" prefHeight="25.0" prefWidth="66.0" text="Cancelar">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btnConsultarAnimal" mnemonicParsing="false" onAction="#onBtnConsultarAnimalAction" text="Consultar">
+                  <Button fx:id="btnConsultarAdotante" mnemonicParsing="false" onAction="#onBtnConsultarAdotanteAction" text="Consultar">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
@@ -55,7 +55,7 @@
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="txtPesquisaAnimal" onAction="#getTxtPesquisaAnimal" prefHeight="25.0" prefWidth="210.0" promptText="Informar o nome do Adotante">
+                  <TextField fx:id="txtPesquisaAdotante" onAction="#getTxtPesquisaAdotante" prefHeight="25.0" prefWidth="210.0" promptText="Informar o nome do Adotante">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>

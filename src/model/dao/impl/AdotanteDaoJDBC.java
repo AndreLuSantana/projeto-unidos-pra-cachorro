@@ -71,16 +71,16 @@ public class AdotanteDaoJDBC implements AdotanteDao{
 		PreparedStatement st = null;
 		try {
 			st = conn.prepareStatement(
-					"Update usuarios "
-					+ "set idAdotante = ?, idAnimal = ?, nomeAdotante = ?, endercoAdotante = ?, telefoneAdotante = ?, emailAdotante = ? "
-					+ "WHERE id = ?");
+					"Update adotantes "
+					+ "set nomeAdotante = ?, enderecoAdotante = ?, telefoneAdotante = ?, emailAdotante = ? "
+					+ "WHERE idAdotante = ?");
 			
-			st.setInt(1, obj.getIdAdotante());
-			st.setInt(2, new Animal().getIdAnimal());
-			st.setString(3, obj.getNomeAdotante());
-			st.setString(4, obj.getEnderecoAdotante());
-			st.setString(5, obj.getTelefoneAdotante());
-			st.setString(6, obj.getEmailAdotante());
+			//st.setInt(2, new Animal().getIdAnimal());
+			st.setString(1, obj.getNomeAdotante());
+			st.setString(2, obj.getEnderecoAdotante());
+			st.setString(3, obj.getTelefoneAdotante());
+			st.setString(4, obj.getEmailAdotante());
+			st.setInt(5, obj.getIdAdotante());
 			
 			st.executeUpdate();
 			
@@ -98,11 +98,11 @@ public class AdotanteDaoJDBC implements AdotanteDao{
 		
 		PreparedStatement st = null;
 		try {
-			st = conn.prepareStatement("Delete from usuarios where idAdotante = ?");
+			st = conn.prepareStatement("Delete from adotantes where idAdotante = ?");
 			
 			st.setInt(1, idAdotante);
 			
-			st.executeQuery();
+			st.executeUpdate();
 			
 		} catch (SQLException e) {
 			throw new DbException(e.getMessage());
@@ -119,7 +119,7 @@ public class AdotanteDaoJDBC implements AdotanteDao{
 		ResultSet rs = null;
 		try {
 			st = conn.prepareStatement(
-				"SELECT * FROM usuarios WHERE nomeAdotante like ? ");
+				"SELECT * FROM adotantes WHERE nomeAdotante like ? ");
 			st.setString(1, "%" + nomeAdotante + "%");
 			rs = st.executeQuery();
 			
@@ -128,13 +128,11 @@ public class AdotanteDaoJDBC implements AdotanteDao{
 			while(rs.next()) {
 				Adotante obj = new Adotante();
 				obj.setIdAdotante(rs.getInt("idAdotante"));
-				Animal animal = new Animal();
-				obj.setIdAnimal(rs.(animal.getIdAnimal()));
 				obj.setNomeAdotante(rs.getString("nomeAdotante"));
 				obj.setEnderecoAdotante(rs.getString("enderecoAdotante"));
-				obj.setTelefoneAdotante(rs.getString("enderecoAdotante"));
+				obj.setTelefoneAdotante(rs.getString("telefoneAdotante"));
 				obj.setEmailAdotante(rs.getString("emailAdotante"));
-
+				
 				list.add(obj);
 			}
 			return list;
@@ -156,7 +154,7 @@ public class AdotanteDaoJDBC implements AdotanteDao{
 		try {
 			st = conn.prepareStatement(
 					"Select * from adotantes "
-					+ "order by nomeAdotante "
+					+ "order by idAdotante "
 					);
 			rs = st.executeQuery();
 			
@@ -164,12 +162,11 @@ public class AdotanteDaoJDBC implements AdotanteDao{
 			
 			while(rs.next()) {
 				Adotante obj = new Adotante();
-				st.setInt(1, obj.getIdAdotante());
-				st.setInt(2, new Animal().getIdAnimal());
-				st.setString(3, obj.getNomeAdotante());
-				st.setString(4, obj.getEnderecoAdotante());
-				st.setString(5, obj.getTelefoneAdotante());
-				st.setString(6, obj.getEmailAdotante());
+				obj.setIdAdotante(rs.getInt("idAdotante"));
+				obj.setNomeAdotante(rs.getString("nomeAdotante"));
+				obj.setEnderecoAdotante(rs.getString("enderecoAdotante"));
+				obj.setTelefoneAdotante(rs.getString("telefoneAdotante"));
+				obj.setEmailAdotante(rs.getString("emailAdotante"));
 				
 				list.add(obj);
 			}
@@ -183,5 +180,51 @@ public class AdotanteDaoJDBC implements AdotanteDao{
 			DB.closeResultSet(rs);
 		}
 	}
+	
+	@Override
+	public Adotante findById(int idAdotante) {
+		
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		
+		try {
+			
+			st = conn.prepareStatement(
+						"Select * from adotantes "
+						+ "where idAdotante = ?"
+					);
+			
+			st.setInt(1, idAdotante);
+			
+			rs = st.executeQuery();
+			
+			if(rs.next()) {
+				Adotante obj = new Adotante();
+				obj.setIdAdotante(rs.getInt("idAdotante"));
+				obj.setNomeAdotante(rs.getString("nomeAdotante"));
+				obj.setEnderecoAdotante(rs.getString("enderecoAdotante"));
+				obj.setTelefoneAdotante(rs.getString("telefoneAdotante"));
+				obj.setEmailAdotante(rs.getString("emailAdotante"));
+				
+				return obj;
+			}
+			
+			return null;
+			
+		} catch (SQLException e) {
+			throw new DbException(e.getMessage());
+		} finally {
+			DB.closeStatement(st);
+			DB.closeResultSet(rs);
+		}
+		
+	}
+	
+	@Override
+	public Boolean checkLogin(String emailAdotante, String senhaAdotante) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

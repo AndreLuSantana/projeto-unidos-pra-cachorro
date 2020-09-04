@@ -40,6 +40,10 @@ public class AdotanteResultadoConsultaController implements Initializable, DataC
 	@FXML 
 	private TableColumn<Adotante, String> columnNome;
 	@FXML 
+	private TableColumn<Adotante, String> columnEndereco;
+	@FXML 
+	private TableColumn<Adotante, String> columnTelefone;
+	@FXML 
 	private TableColumn<Adotante, String> columnEmail;
 	
 	
@@ -78,6 +82,8 @@ public class AdotanteResultadoConsultaController implements Initializable, DataC
 		
 		columnID.setCellValueFactory(new PropertyValueFactory<>("idAdotante"));
 		columnNome.setCellValueFactory(new PropertyValueFactory<>("nomeAdotante"));
+		columnEndereco.setCellValueFactory(new PropertyValueFactory<>("enderecoAdotante"));
+		columnTelefone.setCellValueFactory(new PropertyValueFactory<>("telefoneAdotante"));
 		columnEmail.setCellValueFactory(new PropertyValueFactory<>("emailAdotante"));
 		
 		//Comando para fazer com que a tableView tenha o tamanho da janela e possa redimencionado junto com a janela.
