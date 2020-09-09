@@ -30,17 +30,15 @@ public class AdotanteDaoJDBC implements AdotanteDao{
 		try {
 			st = conn.prepareStatement(
 					"Insert into adotantes "
-					+ "(idAdotante, IdAnimal, nomeAdotante, enderecoAdotante, telefoneAdotante, emailAdotante  "
+					+ "(nomeAdotante, enderecoAdotante, telefoneAdotante, emailAdotante) "
 					+ "VALUES "
-					+ "(?, ?, ?, ?, ?, ? )",
+					+ "(?, ?, ?, ?)",
 					Statement.RETURN_GENERATED_KEYS);
 			
-					st.setInt(1, obj.getIdAdotante());
-					st.setInt(2, new Animal().getIdAnimal());
-					st.setString(3, obj.getNomeAdotante());
-					st.setString(4, obj.getEnderecoAdotante());
-					st.setString(5, obj.getTelefoneAdotante());
-					st.setString(6, obj.getEmailAdotante());
+					st.setString(1, obj.getNomeAdotante());
+					st.setString(2, obj.getEnderecoAdotante());
+					st.setString(3, obj.getTelefoneAdotante());
+					st.setString(4, obj.getEmailAdotante());
 					
 					
 					int rownsAfectted = st.executeUpdate();
