@@ -37,27 +37,27 @@
          <children>
             <Label text="Identificador (ID):" GridPane.rowIndex="1">
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
             <Label text="Nome do Adotante:" GridPane.rowIndex="3">
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
             <Label text="Endereço do Adotante:" GridPane.rowIndex="5">
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
             <Label text="Telefone do Adotante:" GridPane.rowIndex="7">
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
             <Label text="E-mail do Adotante: " GridPane.rowIndex="9">
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
             <Label opacity="0.0" text="ID do animal adotado: " GridPane.rowIndex="11">
@@ -82,10 +82,22 @@
                </GridPane.margin>
             </HBox>
             <Label fx:id="idAdotante" prefHeight="17.0" prefWidth="376.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="nomeAdotante" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="enderecoAdotante" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="telefoneAdotante" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <TextField fx:id="emailAdotante" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <TextField fx:id="nomeAdotante" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin></TextField>
+            <TextField fx:id="enderecoAdotante" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin></TextField>
+            <TextField fx:id="telefoneAdotante" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin></TextField>
+            <TextField fx:id="emailAdotante" GridPane.columnIndex="1" GridPane.rowIndex="9">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin></TextField>
             <Label fx:id="idAnimal" prefHeight="17.0" prefWidth="376.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

@@ -222,11 +222,8 @@ public class AnimalFormCadastroViewController implements Initializable {
 		Constraints.setTextFieldDouble(tamanhoAnimal);
 		Constraints.setTextFieldDouble(pesoAnimal);
 
-		//verificarDuplicidadeSelecaoCheckBox(sexoMacho, sexoFemea);
 		verificarDuplicidadeSelecaoCheckBox(devolvidoSim, devolvidoNao);
-		//verificarDuplicidadeSelecaoCheckBox(canilSim, canilNao);
 		verificarDuplicidadeSelecaoCheckBox(castradoSim, castradoNao);
-		//verificarDuplicidadeSelecaoCheckBox(prenhaSim, prenhaNao);
 		verificarDuplicidadeSelecaoCheckBox(adocaoSim, adocaoNao);
 		constraintsCheckBoxes(prenhaSim, prenhaNao, sexoMacho, sexoFemea);
 		constraintsCheckBoxes(canilSim, canilNao, devolvidoSim, devolvidoNao);

@@ -37,11 +37,5 @@ public class Constraints {
 		});
 	}
 	
-	public static void setTextFieldTelefone(TextField txt) {
-		txt.textProperty().addListener((obs, oldValue, newValue) -> {
-			if(newValue != null && !newValue.matches("^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}\\-[0-9]{4}$")) {
-				txt.setText(oldValue);
-			}
-		});
-	}
+	
 }

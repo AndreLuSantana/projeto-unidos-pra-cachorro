@@ -133,7 +133,7 @@ public class AnimalDaoJDBC implements AnimalDao{
 		ResultSet rs = null;
 		try {
 			st = conn.prepareStatement(
-				"SELECT * FROM animal WHERE idAnimal = ?");
+				"SELECT *, date_format(dataResgate, '%d/%m/%Y') as 'dataFormatada' FROM animal WHERE idAnimal = ?");
 			st.setInt(1, idAnimal);
 			rs = st.executeQuery();
 			if (rs.next()) {
@@ -142,7 +142,7 @@ public class AnimalDaoJDBC implements AnimalDao{
 				obj.setCorAnimal(rs.getString("cor"));
 				obj.setTamanhoAnimal(rs.getDouble("tamanho"));
 				obj.setPesoAnimal(rs.getDouble("peso"));
-				obj.setDataResgateAnimal(rs.getString("dataResgate"));
+				obj.setDataResgateAnimal(rs.getString("dataFormatada"));
 				obj.setVacinasAnimal(rs.getString("vacinas"));
 				obj.setSexoAnimal(rs.getString("sexo"));
 				obj.setPrenhaAnimal(rs.getString("prenha"));
@@ -171,7 +171,7 @@ public class AnimalDaoJDBC implements AnimalDao{
 		
 		try {
 			st = conn.prepareStatement(
-					"Select * from animal "
+					"Select *, date_format(dataResgate, '%d/%m/%Y') as 'dataFormatada' from animal "
 					+ "order by idAnimal "
 					);
 			rs = st.executeQuery();
@@ -184,7 +184,7 @@ public class AnimalDaoJDBC implements AnimalDao{
 				obj.setCorAnimal(rs.getString("cor"));
 				obj.setTamanhoAnimal(rs.getDouble("tamanho"));
 				obj.setPesoAnimal(rs.getDouble("peso"));
-				obj.setDataResgateAnimal(rs.getString("dataResgate"));
+				obj.setDataResgateAnimal(rs.getString("dataFormatada"));
 				obj.setVacinasAnimal(rs.getString("vacinas"));
 				obj.setSexoAnimal(rs.getString("sexo"));
 				obj.setPrenhaAnimal(rs.getString("prenha"));

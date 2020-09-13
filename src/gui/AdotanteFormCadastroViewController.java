@@ -82,7 +82,6 @@ public class AdotanteFormCadastroViewController implements Initializable{
 	public void initialize(URL url, ResourceBundle rb) {
 		
 		Constraints.setTextFieldCaracter(nomeAdotante);
-		//Constraints.setTextFieldTelefone(telefoneAdotante);
 		
 		btnCancelar.setOnAction(event -> {
 			Utils.currentStage(event);
